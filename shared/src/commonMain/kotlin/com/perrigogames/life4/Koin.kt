@@ -29,6 +29,7 @@ val coreModule = module {
     single<Life4API> { Life4APIImpl() }
     single { Json { classDiscriminator = "t" } }
     single { PlacementManager() }
+    single { CaloriesManager() }
     single { FirstRunManager() }
     single { MajorUpdateManager() }
     single { MotdManager() }

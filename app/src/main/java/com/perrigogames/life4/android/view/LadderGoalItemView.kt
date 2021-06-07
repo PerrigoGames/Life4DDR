@@ -17,6 +17,8 @@ import com.perrigogames.life4.android.databinding.RowSongDetailBinding
 import com.perrigogames.life4.android.util.visibilityBool
 import com.perrigogames.life4.data.BaseRankGoal
 import com.perrigogames.life4.data.LadderGoalProgress
+import com.perrigogames.life4.data.ProgressDetail.SongBreakdownDetail
+import com.perrigogames.life4.data.ProgressDetail.TrialSuggestionDetail
 import com.perrigogames.life4.db.GoalState
 import com.perrigogames.life4.enums.ClearType
 import com.perrigogames.life4.enums.GoalStatus.*
@@ -133,24 +135,36 @@ class LadderGoalItemView @JvmOverloads constructor(
                 progress = it.progress
                 max = it.max
             }
-            it.results?.forEach { result ->
-                val rowBinding = retrieveTableRowBinding(
-                    binding.tableExpandDetails,
-                    result.score.toInt().longNumberString(),
-                    result.title
-                )
-                if (result.clearType > ClearType.CLEAR) {
-                    rowBinding.textScore.setTextColor(ContextCompat.getColor(context, result.clearType.colorRes))
-                } else {
-                    rowBinding.textScore.setTextColor(oldColors)
-                }
-                rowBinding.textTitle.setTextColor(ContextCompat.getColor(context, result.difficultyClass.colorRes))
-                binding.tableExpandDetails.addView(rowBinding.root)
+
+            when (val detail = it.detail) {
+                is SongBreakdownDetail -> updateListDetails(detail)
+                is TrialSuggestionDetail -> updateSuggestedTrials(detail)
             }
         }
         binding.textGoalSubtitle.visibilityBool = goalProgress?.let { it.progress != 0 && it.max != 0 } ?: false
 
         binding.progressAmount.visibilityBool = goalProgress != null
+    }
+
+    private fun updateListDetails(detail: SongBreakdownDetail) {
+        detail.results.forEach { result ->
+            val rowBinding = retrieveTableRowBinding(
+                binding.tableExpandDetails,
+                result.score.toInt().longNumberString(),
+                result.title
+            )
+            if (result.clearType > ClearType.CLEAR) {
+                rowBinding.textScore.setTextColor(ContextCompat.getColor(context, result.clearType.colorRes))
+            } else {
+                rowBinding.textScore.setTextColor(oldColors)
+            }
+            rowBinding.textTitle.setTextColor(ContextCompat.getColor(context, result.difficultyClass.colorRes))
+            binding.tableExpandDetails.addView(rowBinding.root)
+        }
+    }
+
+    private fun updateSuggestedTrials(trials: TrialSuggestionDetail) {
+
     }
 
     private fun updateIgnoreState() {

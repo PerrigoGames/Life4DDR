@@ -5,6 +5,7 @@ object SettingsKeys {
     const val KEY_SONG_LIST_VERSION = "song_list_version"
     const val KEY_MAJOR_UPDATE = "major_update"
     const val KEY_LAST_MOTD = "last_motd"
+    const val KEY_HIGHEST_CALORIES = "highest_cals"
 
     const val KEY_LIST_TINT_COMPLETED = "KEY_LIST_TINT_COMPLETED"
     const val KEY_LIST_SHOW_EX = "KEY_LIST_SHOW_EX"

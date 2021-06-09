@@ -607,7 +607,7 @@
 		{ "id": 10021, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 900000 }
 	],
 	"game_versions": {
-		"A20": {
+		"A20_PLUS": {
 			"unlock_requirement": "amethyst1",
 			"rank_requirements": [
 				{

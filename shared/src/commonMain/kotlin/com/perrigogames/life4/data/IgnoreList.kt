@@ -6,8 +6,8 @@
 
 package com.perrigogames.life4.data
 
-import com.perrigogames.life4.enums.*
 import com.perrigogames.life4.db.ChartInfo
+import com.perrigogames.life4.enums.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
@@ -105,16 +105,16 @@ data class IgnoreList(
 
 @Serializable
 data class IgnoredSong(
-    val id: Long,
-    val title: String,
+    @SerialName("skill_id") val skillId: String,
+    var title: String? = null, // TODO make transient
     @SerialName("difficulty_class") val difficultyClass: DifficultyClass? = null,
     @SerialName("play_style") val playStyle: PlayStyle? = null,
 ) {
 
     fun matches(chart: ChartInfo) =
-        chart.skillId == id &&
+        chart.skillId == skillId &&
                 (difficultyClass == null || difficultyClass == chart.difficultyClass) &&
                 (playStyle == null || playStyle == chart.playStyle)
 
-    override fun toString(): String = "$id - $title ($difficultyClass, $playStyle)"
+    override fun toString(): String = "$skillId - $title ($difficultyClass, $playStyle)"
 }

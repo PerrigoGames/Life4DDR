@@ -103,7 +103,7 @@ data class MFCPointsGoal(
 class SongsClearGoal(
     @SerialName("d") val diffNum: Int? = null,
     @SerialName("higher_diff") val allowsHigherDiffNum: Boolean = false,
-    @SerialName("diff_class") private val diffClassSet: DifficultyClassSet? = null,
+    @SerialName("diff_class") val diffClassSet: DifficultyClassSet? = null,
     val songs: List<String>? = null,
     val folder: String? = null,
 
@@ -121,11 +121,25 @@ class SongsClearGoal(
         get() = mClearType ?: ClearType.CLEAR
 
     fun validate(): Boolean {
-        var count = 0
-        if (score != null) count += 1
-        if (averageScore != null) count += 1
-        if (mClearType != null) count += 1
-        return count <= 1
+        if (
+            (diffNum == null && allowsHigherDiffNum) || // diff num required to specify higher diffs allowed
+            (folder != null && diffClassSet == null) || // using folder requires diffClass
+            (songs != null && diffClassSet == null) // using songs requires diffClass
+        ) {
+            return false
+        }
+
+        // Cannot specify more than 1 of
+        var selectionCount = 0
+        if (folder != null) selectionCount += 1
+        if (songs != null) selectionCount += 1
+        if (diffNum != null) selectionCount += 1
+
+        var resultCount = 0
+        if (score != null) resultCount += 1
+        if (averageScore != null) resultCount += 1
+        if (mClearType != null) resultCount += 1
+        return resultCount <= 1
     }
 
     override fun goalString(c: PlatformStrings): String = when {

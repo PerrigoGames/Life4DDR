@@ -49,9 +49,8 @@ class SongDataManager: BaseModel() {
         }
     }
 
-    //
-    // Song List Management
-    //
+    // region Song List Management
+
     fun initializeSongDatabase() {
         dbHelper.deleteAll()
         refreshSongDatabase(force = true)
@@ -95,7 +94,7 @@ class SongDataManager: BaseModel() {
                                 if (style != PlayStyle.DOUBLE || diff != DifficultyClass.BEGINNER) {
                                     val diffNum = data[count++].toLong()
                                     if (diffNum != -1L) {
-                                        charts.add(ChartInfo(id, diff, style, diffNum))
+                                        charts.add(ChartInfo(skillId, diff, style, diffNum))
                                     }
                                 }
                             }
@@ -114,8 +113,20 @@ class SongDataManager: BaseModel() {
         }
     }
 
+    // endregion
+
+    // region Queries
+
+    fun getChartsForDifficultyNumber(difficulty: Int): List<ChartInfo> =
+        dbHelper.selectChartsByDifficultyNumber(difficulty)
+
+    fun getChartsForDifficultyNumbers(difficulties: List<Int>): List<ChartInfo> =
+        dbHelper.selectChartsByDifficultyNumbers(difficulty)
+
+    // endregion
+
     companion object {
-        const val DEFAULT_IGNORE_VERSION = "A20_US"
+        const val DEFAULT_IGNORE_VERSION = "A20_PLUS_US"
     }
 }
 

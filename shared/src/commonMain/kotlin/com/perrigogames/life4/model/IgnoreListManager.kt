@@ -36,7 +36,8 @@ class IgnoreListManager: BaseModel() {
     val ignoreListTitles get() = ignoreLists.data.lists.map { it.name }
 
     fun getIgnoreList(id: String): IgnoreList =
-        ignoreLists.data.lists.firstOrNull { it.id == id } ?: getIgnoreList(SongDataManager.DEFAULT_IGNORE_VERSION)
+        ignoreLists.data.lists.firstOrNull { it.id == id }
+            ?: getIgnoreList(SongDataManager.DEFAULT_IGNORE_VERSION)
 
     //
     // Currently Selected
@@ -44,24 +45,25 @@ class IgnoreListManager: BaseModel() {
 
     val selectedVersion: String
         get() = settings.getString(KEY_IMPORT_GAME_VERSION, SongDataManager.DEFAULT_IGNORE_VERSION)
-    val selectedIgnoreList: IgnoreList?
+    val selectedIgnoreList: IgnoreList
         get() = getIgnoreList(selectedVersion)
     val selectedIgnoreGroups: List<IgnoreGroup>?
-        get() = selectedIgnoreList?.groups?.map { id -> ignoreLists.data.groupsMap[id] ?: error("Invalid group name $id") }
+        get() = selectedIgnoreList.groups?.map { id ->
+            ignoreLists.data.groupsMap[id] ?: error("Invalid group name $id")
+        }
 
-    private var mSelectedIgnoreSongIds: List<Long>? = null
-
-    val selectedIgnoreSongIds: List<Long>
+    private var mSelectedIgnoreSongIds: List<String>? = null
+    val selectedIgnoreSongIds: List<String>
         get() {
             if (mSelectedIgnoreSongIds == null) {
                 val unlocks = getAllUnlockedSongs()
-                mSelectedIgnoreSongIds = selectedIgnoreList?.resolvedSongs
+                mSelectedIgnoreSongIds = selectedIgnoreList.resolvedSongs
                     ?.filterNot { unlocks.contains(it) }
-                    ?.map { it.id } ?: emptyList()
+                    ?.map { it.skillId } ?: emptyList()
             }
             return mSelectedIgnoreSongIds!!
         }
-    val selectedIgnoreCharts get() = selectedIgnoreList?.resolvedCharts?.toList() ?: emptyList()
+    val selectedIgnoreCharts get() = selectedIgnoreList.resolvedCharts?.toList() ?: emptyList()
 
     //
     // Unlocks
@@ -93,11 +95,11 @@ class IgnoreListManager: BaseModel() {
         mSelectedIgnoreSongIds = null
     }
 
-    fun getCurrentlyIgnoredSongs() = dbHelper.selectSongs(selectedIgnoreSongIds)
+    fun getCurrentlyIgnoredSongs() = dbHelper.selectSongsBySkillID(selectedIgnoreSongIds)
 
     fun getCurrentlyIgnoredCharts(): Map<SongInfo, List<ChartInfo>> =
-        dbHelper.selectSongsAndCharts(selectedIgnoreCharts.map { it.id }).mapValues { entry ->
-            val validCharts = selectedIgnoreCharts.filter { it.id == entry.key.id }
+        dbHelper.selectSongsAndCharts(selectedIgnoreCharts.map { it.skillId }).mapValues { entry ->
+            val validCharts = selectedIgnoreCharts.filter { it.skillId == entry.key.skillId }
             entry.value.filter { info -> validCharts.any { it.matches(info)  } }
         }
 }

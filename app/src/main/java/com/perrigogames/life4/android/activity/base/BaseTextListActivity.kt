@@ -50,7 +50,7 @@ class SongRecordsListCheckActivity: BaseTextListActivity(), KoinComponent {
 
     override fun buildText(builder: StringBuilder) {
         songDb.allSongs().forEach { song ->
-            val difficulties = songDb.selectChartsForSong(song.id, PlayStyle.SINGLE)
+            val difficulties = songDb.selectChartsForSong(song.skillId, PlayStyle.SINGLE)
                 .joinToString(separator = " / ") { "${it.difficultyNumber}" }
             builder.append("${song.title} - $difficulties\n")
         }

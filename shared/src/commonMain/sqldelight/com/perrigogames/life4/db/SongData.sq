@@ -12,7 +12,7 @@ preview INTEGER AS Boolean DEFAULT 0
 );
 
 CREATE TABLE ChartInfo (
-skillId INTEGER NOT NULL,
+skillId TEXT NOT NULL,
 difficultyClass INTEGER AS DifficultyClass NOT NULL DEFAULT 1,
 playStyle INTEGER AS PlayStyle NOT NULL DEFAULT 1,
 difficultyNumber INTEGER NOT NULL DEFAULT 0,
@@ -63,16 +63,13 @@ selectChartsForSongAndDifficulty:
 SELECT * FROM ChartInfo WHERE skillId = ? AND difficultyClass = ?;
 
 selectChartsByDifficultyNumber:
-SELECT * FROM ChartInfo WHERE difficultyNumber = ?;
+SELECT * FROM ChartInfo WHERE playStyle = ? AND difficultyNumber = ?;
+
+selectChartsByDifficultyNumbers:
+SELECT * FROM ChartInfo WHERE playStyle = ? AND difficultyNumber IN ?;
 
 selectChartsByDifficultyClass:
-SELECT * FROM ChartInfo WHERE difficultyClass = ?;
-
-selectStyleChartsByDifficultyNumber:
-SELECT * FROM ChartInfo WHERE difficultyNumber = ? AND playStyle = ?;
-
-selectStyleChartsByDifficultyClass:
-SELECT * FROM ChartInfo WHERE difficultyClass = ? AND playStyle = ?;
+SELECT * FROM ChartInfo WHERE playStyle = ? AND difficultyClass = ?;
 
 selectChartsByPlayStyle:
 SELECT * FROM ChartInfo WHERE playStyle = ?;

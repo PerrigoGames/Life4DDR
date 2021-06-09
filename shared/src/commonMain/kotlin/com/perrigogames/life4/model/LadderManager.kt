@@ -49,7 +49,7 @@ class LadderManager: BaseModel() {
 
     val ladderData: LadderRankData get() = ladderDataRemote.data
     val currentRequirements: LadderVersion
-        get() = ignoreListManager.selectedIgnoreList!!.baseVersion.let { version ->
+        get() = ignoreListManager.selectedIgnoreList.baseVersion.let { version ->
             ladderData.gameVersions[version] ?: error("Rank requirements not found for version $version")
         }
 

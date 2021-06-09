@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "major_version": 1,
+  "major_version": 2,
   "groups": [
     {
       "id": "floor_infection",
       "name":  "FLOOR INFECTION",
       "unlock": "single",
       "songs": [
-        { "id": 600, "title": "ドキドキ☆流星トラップガール!!" },
-        { "id": 601, "title": "Strobe♡Girl" },
-        { "id": 602, "title": "second spring storm" }
+        { "skill_id": "QoId0biOD18610ii0DDP61QqOl6qq86q", "title": "ドキドキ☆流星トラップガール!!" },
+        { "skill_id": "qPPbDIqol6d06iD6dIdid6QQ9oPq9IDo", "title": "Strobe♡Girl" },
+        { "skill_id": "d1bQ1iIb0I1PoPOQqliIo9PiQQb1119d", "title": "second spring storm" }
       ]
     },
     {
@@ -17,32 +17,32 @@
       "name": "いちかのBEMANI投票選抜戦2019",
       "unlock": "single",
       "songs": [
-        { "id": 887, "title": "最小三倍完全数" },
-        { "id": 894, "title": "Afterimage d'automne" },
-        { "id": 889, "title": "BLACK JACKAL" },
-        { "id": 890, "title": "Six String Proof" },
-        { "id": 891, "title": "toy boxer" },
-        { "id": 888, "title": "Trill auf G" },
-        { "id": 893, "title": "voltississimo" },
-        { "id": 892, "title": "おーまい！らぶりー！すうぃーてぃ！だーりん！" },
-        { "id": 895, "title": "ミッドナイト☆WAR" }
+        { "skill_id": "O9qDQOQO8dDDIiO9dPP0Pb8qQo9l89D9", "title": "最小三倍完全数" },
+        { "skill_id": "blld8o09oQo80PIIoIdbP9688DIqlbdb", "title": "Afterimage d'automne" },
+        { "skill_id": "OO1oqdIPP80QdoP11QP61OdDb0lI1qIq", "title": "BLACK JACKAL" },
+        { "skill_id": "D6o8lIiDQ80oi6iIbiP9DlOPIl0Q8d69", "title": "Six String Proof" },
+        { "skill_id": "d9QO9odlI18i96I6DQPld1iiol8ODl0o", "title": "toy boxer" },
+        { "skill_id": "0lIIil06b8q819P9lDil09o6qlqo9I1i", "title": "Trill auf G" },
+        { "skill_id": "6DQ9D9oi66I8ODi8o0dPdOD1ibbIqIdI", "title": "voltississimo" },
+        { "skill_id": "lqI8DD9Plq6IO8P8P6Pl8Di98DlI9oP8", "title": "おーまい！らぶりー！すうぃーてぃ！だーりん！" },
+        { "skill_id": "06DO8bb0O891IQ9QP01diqOOl0D80QbO", "title": "ミッドナイト☆WAR" }
       ]
     },
     {
       "id": "ace_extra_exclusive",
       "name":  "DDR A Extra Exclusive",
       "songs": [
-        { "id": 757, "title": "ACE FOR ACES", "difficulty_class": "challenge" },
-        { "id": 797, "title": "Pursuer" },
-        { "id": 799, "title": "Vanquish The Ghost" }
+        { "skill_id": "ld6P1lbb0bPO9doqbbPOoPb8qoDo8id0", "title": "ACE FOR ACES", "difficulty_class": "challenge" },
+        { "skill_id": "bl90QbiqoOlDI6iQQQdo0Iol6PIdQblP", "title": "Pursuer" },
+        { "skill_id": "891b0OdIdO8b9obi69b6PQlPIqDI01dO", "title": "Vanquish The Ghost" }
       ]
     },
     {
       "id": "a20_extra_exclusive",
       "name": "DDR A20 Extra Exclusive",
       "songs": [
-        { "id": 837, "title": "ORCA" },
-        { "id": 878, "title": "Splash Gold" }
+        { "skill_id": "99OQb9b0IQ98P6IQdPOiqi8q16o16iqP", "title": "ORCA" },
+        { "skill_id": "b1do8OI6qDDlQO0PI16868ql6bdbI886", "title": "Splash Gold" }
       ]
     },
     {
@@ -50,8 +50,8 @@
       "name": "The 8th KONAMI Arcade Championship Entry",
       "unlock": "all",
       "songs": [
-        { "id": 820, "title": "First Time" },
-        { "id": 819, "title": "Catch Our Fire!" }
+        { "skill_id": "9Di9ODOOl8PDQiO1O6o8lD16QlI609ob", "title": "First Time" },
+        { "skill_id": "P6id8qqolbP0oqO060OOqbl60DI9iQoQ", "title": "Catch Our Fire!" }
       ]
     },
     {
@@ -59,8 +59,8 @@
       "name": "The 9th KONAMI Arcade Championship Entry",
       "unlock": "all",
       "songs": [
-        { "id": 904, "title": "ランカーキラーガール" },
-        { "id": 905, "title": "The History of the Future" }
+        { "skill_id": "D08lqQOPdOO6D6ll690Qd6PdbO111011", "title": "ランカーキラーガール" },
+        { "skill_id": "Q8bIDb60oPo890oi0l0O9PQd9lOb8o1Q", "title": "The History of the Future" }
       ]
     },
     {
@@ -68,11 +68,11 @@
       "name": "DanceDanceRevolution 20th Anniversary Grand Finale",
       "unlock": "sequence",
       "songs": [
-        { "id": 816, "title": "#OurMemories", "difficulty_class": "challenge" },
-        { "id": 812, "title": "Show me your moves", "difficulty_class": "challenge" },
-        { "id": 814, "title": "CHAOS Terror-Tech Mix", "difficulty_class": "challenge" },
-        { "id": 813, "title": "POSSESSION (20th Anniversary Mix)", "difficulty_class": "challenge" },
-        { "id": 815, "title": "MAX 360", "difficulty_class": "challenge" }
+        { "skill_id": "QD8D6IQ1QoOPIPIIbI10QDOdd96OPIQi", "title": "#OurMemories", "difficulty_class": "challenge" },
+        { "skill_id": "6oolbQ0QiO90Dd0DQbb1D86d8q88id86", "title": "Show me your moves", "difficulty_class": "challenge" },
+        { "skill_id": "b16OP1o9qb6bQd66qOl98iq0boiQP919", "title": "CHAOS Terror-Tech Mix", "difficulty_class": "challenge" },
+        { "skill_id": "19q96Q8l1oqbD0OQq6biDbO6O1oqqb6O", "title": "POSSESSION (20th Anniversary Mix)", "difficulty_class": "challenge" },
+        { "skill_id": "1Dl19idl0i0qiqidbDIIbQddiP6o11PP", "title": "MAX 360", "difficulty_class": "challenge" }
       ]
     },
     {
@@ -80,85 +80,92 @@
       "name": "DDR CHALLENGE Carnival",
       "unlock": "sequence",
       "songs": [
-        { "id": 796, "title": "無頼ック自己ライザー", "difficulty_class": "challenge" },
-        { "id": 855, "title": "タイガーランペイジ", "difficulty_class": "challenge" },
-        { "id": 854, "title": "腐れ外道とチョコレゐト", "difficulty_class": "challenge" },
-        { "id": 897, "title": "ホーンテッド★メイドランチ", "difficulty_class": "challenge" },
-        { "id": 860, "title": "Our Soul", "difficulty_class": "challenge" },
-        { "id": 884, "title": "DOWNER & UPPER", "difficulty_class": "challenge" },
-        { "id": 809, "title": "Prey", "difficulty_class": "challenge" }
+        { "skill_id": "id0QqdbI8oloO9l08IqI9q1D0819OQID", "title": "無頼ック自己ライザー", "difficulty_class": "challenge" },
+        { "skill_id": "Q9l0i6DPO08obldq101ldDioiqdIDqlq", "title": "タイガーランペイジ", "difficulty_class": "challenge" },
+        { "skill_id": "QoDQ0oq08QqiI0DQ8dIPb10qIi6d6i89", "title": "腐れ外道とチョコレゐト", "difficulty_class": "challenge" },
+        { "skill_id": "I0qiD6Ob86D1oQOib81lID6Dll8iOOOP", "title": "ホーンテッド★メイドランチ", "difficulty_class": "challenge" },
+        { "skill_id": "QI06q9lPIoo80DlI18Ooi6dbPl89bqi0", "title": "Our Soul", "difficulty_class": "challenge" },
+        { "skill_id": "lldPQPDP0qq8iqQ910l8b8PoQ6O668Q0", "title": "DOWNER & UPPER", "difficulty_class": "challenge" },
+        { "skill_id": "i916bDibPI9l869o9IIQb8DbO9bPDi6q", "title": "Prey", "difficulty_class": "challenge" }
       ]
     },
     {
       "id": "a20_legend_license",
       "name": "\"Legend License\" Remixes",
       "songs": [
-        { "id": 869, "title": "BUTTERFLY (20th Anniversary Mix)" },
-        { "id": 853, "title": "CARTOON HEROES (20th Anniversary Mix)" },
-        { "id": 839, "title": "HAVE YOU NEVER BEEN MELLOW (20th Anniversary Mix)" },
-        { "id": 858, "title": "LONG TRAIN RUNNIN' (20th Anniversary Mix)" },
-        { "id": 863, "title": "SKY HIGH (20th Anniversary Mix)" }
+        { "skill_id": "6dQQd1d1OQlqQdQ98i01DQ1i9P6QDQdQ", "title": "BUTTERFLY (20th Anniversary Mix)" },
+        { "skill_id": "8Io6oi89Q8DblI8IPdPPI0q98Ql9o98Q", "title": "CARTOON HEROES (20th Anniversary Mix)" },
+        { "skill_id": "lIlQ8DbPP6Iil1DOlQ6d8IPQblDQ8IiI", "title": "HAVE YOU NEVER BEEN MELLOW (20th Anniversary Mix)" },
+        { "skill_id": "D9IO16idQq6iiI88loI1i986lIID0O9O", "title": "LONG TRAIN RUNNIN' (20th Anniversary Mix)" },
+        { "skill_id": "IbI90PiioDlqPP19D1odPPbP1PP0009O", "title": "SKY HIGH (20th Anniversary Mix)" }
       ]
     },
     {
-      "id": "a20_golden_league_silver",
+      "id": "a20plus_golden_league_bronze",
       "name": "GOLDEN LEAGUE SILVER Class",
       "unlock": "all",
       "songs": [
-        { "id": 879, "title": "Ace out" },
-        { "id": 857, "title": "Avenger" },
-        { "id": 868, "title": "Give Me" },
-        { "id": 862, "title": "New Era" },
-        { "id": 886, "title": "The World Ends Now" },
-        { "id": 896, "title": "Rampage Hero" },
-        { "id": 901, "title": "ALPACORE" }
+        { "skill_id": "1qPIiqqQo0P9dD90I11q90b0ooIidbPO", "title": "CyberConnect" },
+        { "skill_id": "dqQbQ9oPlIi6bDdi18d9qPlDb0PiDddi", "title": "DIGITALIZER" },
+        { "skill_id": "D6ll81qoDDPIq0d89O69dIQIldQdQoId", "title": "Draw the Savage" },
+        { "skill_id": "dIdDQD1Q8oPQ90Q1DPbiQI661qD9oi6I", "title": "Golden Arrow" }
       ]
     },
     {
-      "id": "a20_golden_league_gold",
+      "id": "a20plus_golden_league_silver",
+      "name": "GOLDEN LEAGUE SILVER Class",
+      "unlock": "all",
+      "songs": [
+        { "skill_id": "6Obi001oi9Qd1966dOd6d6Qo66dbbill", "title": "Going Hypersonic" },
+        { "skill_id": "bqi9QiQ0lbi8id6lOi88iIi9lo6Pdd90", "title": "Lightspeed" },
+        { "skill_id": "d10d86DQqqd6QDlQlOI1bQi9do66l8Od", "title": "MUTEKI BUFFALO" },
+        { "skill_id": "I189iqQI6iPDdIDbo81b1iD6lIQiI0Po", "title": "Run The Show" }
+      ]
+    },
+    {
+      "id": "a20plus_golden_league_gold",
       "name": "GOLDEN LEAGUE GOLD Class",
       "unlock": "all",
       "songs": [
-        { "id": 917, "title": "Starlight in the Snow" },
-        { "id": 909, "title": "Glitch Angel" }
+        { "skill_id": "OIOdod8llPlO0lOlb6P8iIQ90qQqoDiP", "title": "Yuni's Nocturnal Days" }
       ]
     }
   ],
   "lists": [
     {
-      "id": "A20_US",
-      "name": "DDR A20 (White) (US)",
-      "base_version": "A20",
-      "locked_groups": [ "a20_extra_exclusive", "a20_golden_league_silver", "a20_golden_league_gold", "a20_legend_license" ],
+      "id": "A20_PLUS_US",
+      "name": "DDR A20+ (White) (US)",
+      "base_version": "A20_PLUS",
+      "locked_groups": [ "a20_extra_exclusive", "a20plus_golden_league_silver", "a20plus_golden_league_gold", "a20_legend_license" ],
       "groups": [ "floor_infection", "kac_2020", "a20_anniversary_challenge", "ichica_2019", "a20_challenge_carnival" ],
       "songs": [
-        { "id": 906, "title": "令和" },
-        { "id": 760, "title": "初音ミクの消失" },
-        { "id": 727, "title": "ロストワンの号哭" },
-        { "id": 759, "title": "脳漿炸裂ガール" },
-        { "id": 758, "title": "幸せになれる隠しコマンドがあるらしい" },
-        { "id": 836, "title": "The Light" }
+        { "skill_id": "illQ66d0QlbDl18OOb8P0ODD0oDP19PQ", "title": "令和" },
+        { "skill_id": "QlQ9Qb00bI0ob9oDIiPqO1QdQ0o6O0O6", "title": "初音ミクの消失" },
+        { "skill_id": "Q6b1odD8q99D190oP6ol01DolQPD0OdD", "title": "ロストワンの号哭" },
+        { "skill_id": "oOOI98q81oQQQP88d6Q6qlbl8QI9d0dI", "title": "脳漿炸裂ガール" },
+        { "skill_id": "D11ldIqD8dQIi9oQQIIo86QOI8D9olP8", "title": "幸せになれる隠しコマンドがあるらしい" },
+        { "skill_id": "q6661PIbbb1O80OQQ11iD6bP1l6bio0Q", "title": "The Light" }
       ]
     },
     {
-      "id": "A20_JP",
-      "name": "DDR A20 (White) (JP)",
-      "base_version": "A20",
-      "locked_groups": [ "a20_extra_exclusive", "a20_golden_league_silver", "a20_golden_league_gold", "a20_legend_license" ],
+      "id": "A20_PLUS_JP",
+      "name": "DDR A20+ (White) (JP)",
+      "base_version": "A20_PLUS",
+      "locked_groups": [ "a20_extra_exclusive", "a20plus_golden_league_silver", "a20plus_golden_league_gold", "a20_legend_license" ],
       "groups": [ "floor_infection", "kac_2020", "a20_anniversary_challenge", "ichica_2019", "a20_challenge_carnival" ]
     },
     {
-      "id": "A20_GOLD_CAB",
-      "name": "DDR A20 20th Anniversary (Gold) (JP)",
-      "base_version": "A20",
+      "id": "A20_PLUS_GOLD_CAB",
+      "name": "DDR A20+ 20th Anniversary (Gold) (JP)",
+      "base_version": "A20_PLUS",
       "locked_groups": [ "a20_extra_exclusive" ],
       "groups": [ "floor_infection", "kac_2020", "a20_anniversary_challenge", "ichica_2019", "a20_challenge_carnival",
-        "a20_golden_league_silver", "a20_golden_league_gold" ]
+        "a20plus_golden_league_silver", "a20plus_golden_league_gold" ]
     },
     {
       "id": "ALL_MUSIC",
       "name": "All Songs",
-      "base_version": "A20"
+      "base_version": "A20_PLUS"
     }
   ]
 }

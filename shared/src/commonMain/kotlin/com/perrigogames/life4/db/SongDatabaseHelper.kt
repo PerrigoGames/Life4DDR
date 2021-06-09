@@ -24,12 +24,12 @@ class SongDatabaseHelper(sqlDriver: SqlDriver): DatabaseHelper(sqlDriver) {
     }
 
     suspend fun insertChart(
-        songId: Long,
+        skillId: String,
         difficultyClass: DifficultyClass,
         difficultyNumber: Long,
         playStyle: PlayStyle,
     ) = withContext(Dispatchers.Default) {
-        queries.insertChart(songId, difficultyClass, difficultyNumber, playStyle)
+        queries.insertChart(skillId, difficultyClass, difficultyNumber, playStyle)
     }
 
     suspend fun insertSongsAndCharts(
@@ -47,31 +47,45 @@ class SongDatabaseHelper(sqlDriver: SqlDriver): DatabaseHelper(sqlDriver) {
         log("SongImport", "Import committed")
     }
 
-    fun selectSong(id: Long) = queries.selectSongById(id).executeAsOneOrNull()
-    fun selectSongs(ids: List<Long>) = queries.selectSongByIdList(ids).executeAsList()
-    fun selectSongBySkillID(title: String) = queries.selectSongBySkillId(title).executeAsOneOrNull()
-    fun selectSongsBySkillID(titles: List<String>) = queries.selectSongBySkillIdList(titles).executeAsList()
-    fun selectSongByTitle(title: String) = queries.selectSongByTitle(title).executeAsOneOrNull()
-    fun selectSongsByTitle(titles: List<String>) = queries.selectSongByTitleList(titles).executeAsList()
+    fun selectSongBySkillID(title: String) = queries.selectSongBySkillId(title)
+        .executeAsOneOrNull()
+    fun selectSongsBySkillID(titles: List<String>) = queries.selectSongBySkillIdList(titles)
+        .executeAsList()
+
+    fun selectSongByTitle(title: String) = queries.selectSongByTitle(title)
+        .executeAsOneOrNull()
+    fun selectSongsByTitle(titles: List<String>) = queries.selectSongByTitleList(titles)
+        .executeAsList()
+
     fun allSongs() = queries.allSongs().executeAsList()
 
-    fun selectChart(songId: Long, playStyle: PlayStyle, difficultyClass: DifficultyClass) =
-        queries.selectChart(songId, playStyle, difficultyClass).executeAsOneOrNull()
-    fun selectChartsForSong(songId: Long) =
-        queries.selectChartsForSong(songId).executeAsList()
-    fun selectChartsForSongList(songIds: List<Long>) =
-        queries.selectChartsForSongList(songIds).executeAsList()
-    fun selectChartsForSong(songId: Long, playStyle: PlayStyle) =
-        queries.selectChartsForSongAndPlayStyle(songId, playStyle).executeAsList()
-    fun selectChartsForDifficulty(songId: Long, difficultyClass: DifficultyClass) =
+    fun selectChart(songId: String, playStyle: PlayStyle, difficultyClass: DifficultyClass) =
+        queries.selectChart(songId, playStyle, difficultyClass)
+            .executeAsOneOrNull()
+    fun selectChartsForSong(songId: String) =
+        queries.selectChartsForSong(songId)
+            .executeAsList()
+    fun selectChartsForSongList(songIds: List<String>) =
+        queries.selectChartsForSongList(songIds)
+            .executeAsList()
+    fun selectChartsForSong(songId: String, playStyle: PlayStyle) =
+        queries.selectChartsForSongAndPlayStyle(songId, playStyle)
+            .executeAsList()
+    fun selectChartsForDifficulty(songId: String, difficultyClass: DifficultyClass) =
         queries.selectChartsForSongAndDifficulty(songId, difficultyClass)
-    fun selectSongsAndCharts(songIds: List<Long>): Map<SongInfo, List<ChartInfo>> {
-        val songs = selectSongs(songIds)
-        return selectChartsForSongList(songIds).groupBy { chart -> songs.first { it.id == chart.skillId } }
+    fun selectChartsByDifficultyNumber(difficultyNumber: Int) =
+        queries.selectChartsByDifficultyNumber(difficultyNumber.toLong())
+            .executeAsList()
+    fun selectChartsByDifficultyNumbers(difficultyNumbers: List<Int>) =
+        queries.selectChartsByDifficultyNumber(difficultyNumbers.toLong())
+            .executeAsList()
+    fun selectSongsAndCharts(songIds: List<String>): Map<SongInfo, List<ChartInfo>> {
+        val songs = selectSongsBySkillID(songIds)
+        return selectChartsForSongList(songIds).groupBy { chart -> songs.first { it.skillId == chart.skillId } }
     }
     fun selectSongsAndChartsByTitle(titles: List<String>): Map<SongInfo, List<ChartInfo>> {
         val songs = selectSongsByTitle(titles)
-        return selectChartsForSongList(songs.map { it.id }).groupBy { chart -> songs.first { it.id == chart.skillId } }
+        return selectChartsForSongList(songs.map { it.skillId }).groupBy { chart -> songs.first { it.skillId == chart.skillId } }
     }
 
     fun allSongsAndCharts() = queries.allSongsAndCharts().executeAsList()

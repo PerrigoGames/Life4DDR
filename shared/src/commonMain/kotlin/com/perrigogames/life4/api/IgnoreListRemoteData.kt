@@ -3,6 +3,7 @@ package com.perrigogames.life4.api
 import com.perrigogames.life4.api.base.*
 import com.perrigogames.life4.data.IgnoreListData
 import com.perrigogames.life4.ktor.GithubDataAPI
+import com.perrigogames.life4.model.SongDataManager
 import kotlinx.serialization.json.Json
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -14,6 +15,7 @@ class IgnoreListRemoteData(
 
     private val json: Json by inject()
     private val githubKtor: GithubDataAPI by inject()
+    private val songDataManager: SongDataManager by inject()
 
     private val converter = IgnoreListConverter()
 
@@ -30,5 +32,6 @@ class IgnoreListRemoteData(
 
     override fun onNewDataAvailable() {
         data.evaluateIgnoreLists()
+        data.groups
     }
 }

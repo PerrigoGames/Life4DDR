@@ -141,8 +141,14 @@ class LadderImporter(
                 val playStyle = PlayStyle.parse(chartType)!!
                 val difficultyClass = DifficultyClass.parse(chartType)!!
 
-                val songDB = songDbHelper.selectSongByTitle(songName) ?: throw SongNotFoundException(songName)
-                val chartDB = songDbHelper.selectChart(songDB.id, playStyle, difficultyClass) ?: throw ChartNotFoundException(songDB.title, playStyle, difficultyClass, difficultyNumber)
+                val songDB = songDbHelper.selectSongByTitle(
+                    songName
+                ) ?: throw SongNotFoundException(songName)
+                val chartDB = songDbHelper.selectChart(
+                    songDB.skillId,
+                    playStyle,
+                    difficultyClass
+                ) ?: throw ChartNotFoundException(songDB.title, playStyle, difficultyClass, difficultyNumber)
                 resultDbHelper.insertResult(songDB, chartDB, clear, score)
 
                 if (isDebug && clear == ClearType.NO_PLAY) {

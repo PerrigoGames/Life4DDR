@@ -35,7 +35,7 @@ class LadderProgressManager: BaseModel() {
     }
 
     private fun getSongsClearGoalProgress(goal: SongsClearGoal): LadderGoalProgress? {
-        val charts = createChartList(goal)
+        val charts = songDataManager.createChartList(goal)
         val progress = ladderResults.selectResultsForCharts(
             charts.map { ResultDatabaseHelper.ResultQueryItem(it.skillId, it.difficultyClass) }
         )
@@ -74,30 +74,5 @@ class LadderProgressManager: BaseModel() {
         return goal.options
             .mapNotNull { getGoalProgress(it) }
             .maxByOrNull { it.progress / it.max.toFloat() }
-    }
-
-    private fun createChartList(goal: SongsClearGoal): List<ChartInfo> {
-        //    @SerialName("d") val diffNum: Int? = null,
-        //    @SerialName("higher_diff") val allowsHigherDiffNum: Boolean = false,
-        //    @SerialName("diff_class") private val diffClassSet: DifficultyClassSet? = null,
-        //    val songs: List<String>? = null,
-        //    val folder: String? = null,
-
-        return goal.run {
-            if (diffNum != null) {
-                val diffNums = when {
-                    allowsHigherDiffNum -> (diffNum..HIGHEST_DIFFICULTY)
-                    else -> listOf(diffNum)
-                }
-                if (diffClassSet != null) {
-                    songDataManager.getChartsForDifficultyNumber()
-                    emptyList()
-                } else {
-                    emptyList()
-                }
-            } else {
-                emptyList()
-            }
-        }
     }
 }

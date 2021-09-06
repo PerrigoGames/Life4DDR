@@ -3,11 +3,11 @@ object Versions {
     const val target_sdk = 30
     const val compile_sdk = 30
 
-    const val kotlin = "1.4.30"
+    const val kotlin = "1.5.20"
     const val cocoapodsext = "0.12"
     const val espresso = "3.1.0"
     const val googleServices = "4.3.5"
-    const val sqlDelight = "1.4.4"
+    const val sqlDelight = "1.5.1"
     const val kermit = "0.1.8"
     const val ktor = "1.5.2"
     const val stately = "1.1.4"

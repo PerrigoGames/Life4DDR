@@ -24,12 +24,11 @@ class ResultDatabaseHelper(sqlDriver: SqlDriver): DatabaseHelper(sqlDriver) {
     }
 
     suspend fun insertResult(
-        song: SongInfo,
-        chart: ChartInfo,
+        songChart: SongChartInfo,
         clearType: ClearType,
         score: Int,
         exScore: Int? = null
-    ) = insertResult(song.skillId, chart.difficultyClass, chart.playStyle, clearType, score, exScore)
+    ) = insertResult(songChart.skillId, songChart.difficultyClass, songChart.playStyle, clearType, score, exScore)
 
     fun insertSAResults(entries: List<LadderImporter.SASongEntry>) {
         queries.transaction {

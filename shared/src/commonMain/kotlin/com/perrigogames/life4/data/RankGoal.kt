@@ -10,6 +10,7 @@
 package com.perrigogames.life4.data
 
 import com.perrigogames.life4.PlatformStrings
+import com.perrigogames.life4.data.TrialData.Companion.HIGHEST_DIFFICULTY
 import com.perrigogames.life4.db.DetailedChartResult
 import com.perrigogames.life4.enums.*
 import com.perrigogames.life4.logE
@@ -119,6 +120,12 @@ class SongsClearGoal(
 
     val clearType: ClearType
         get() = mClearType ?: ClearType.CLEAR
+
+    val diffNums: List<Int>? = when {
+        diffNum == null -> null
+        allowsHigherDiffNum -> (diffNum..HIGHEST_DIFFICULTY).toList()
+        else -> listOf(diffNum)
+    }
 
     fun validate(): Boolean {
         if (

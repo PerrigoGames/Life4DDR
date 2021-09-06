@@ -7,9 +7,10 @@ import com.perrigogames.life4.api.base.LocalDataReader
 import com.perrigogames.life4.data.IgnoreGroup
 import com.perrigogames.life4.data.IgnoreList
 import com.perrigogames.life4.data.IgnoredSong
-import com.perrigogames.life4.db.ChartInfo
+import com.perrigogames.life4.db.SongChartInfo
 import com.perrigogames.life4.db.SongDatabaseHelper
 import com.perrigogames.life4.db.SongInfo
+import com.perrigogames.life4.enums.PlayStyle
 import com.perrigogames.life4.ktor.GithubDataAPI.Companion.IGNORES_FILE_NAME
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.set
@@ -95,11 +96,17 @@ class IgnoreListManager: BaseModel() {
         mSelectedIgnoreSongIds = null
     }
 
-    fun getCurrentlyIgnoredSongs() = dbHelper.selectSongsBySkillID(selectedIgnoreSongIds)
+    fun getCurrentlyIgnoredSongs(): List<SongInfo> = dbHelper.selectSongsBySkillID(selectedIgnoreSongIds)
 
-    fun getCurrentlyIgnoredCharts(): Map<SongInfo, List<ChartInfo>> =
-        dbHelper.selectSongsAndCharts(selectedIgnoreCharts.map { it.skillId }).mapValues { entry ->
-            val validCharts = selectedIgnoreCharts.filter { it.skillId == entry.key.skillId }
-            entry.value.filter { info -> validCharts.any { it.matches(info)  } }
+    fun getCurrentlyIgnoredCharts(playStyle: PlayStyle): List<SongChartInfo> {
+        val ignoreIds = selectedIgnoreCharts.map { it.skillId }
+        val ignoreCharts = dbHelper.selectSongCharts(playStyle, ignoreIds)
+        return selectedIgnoreCharts.map { ignored ->
+            ignoreCharts.first {
+                ignored.skillId == it.skillId &&
+                        ignored.playStyle == it.playStyle &&
+                        ignored.difficultyClass == it.difficultyClass
+            }
         }
+    }
 }

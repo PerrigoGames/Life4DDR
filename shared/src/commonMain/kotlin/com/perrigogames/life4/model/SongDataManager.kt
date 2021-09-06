@@ -5,7 +5,9 @@ import com.perrigogames.life4.api.SongListRemoteData
 import com.perrigogames.life4.api.base.CompositeData
 import com.perrigogames.life4.api.base.LocalDataReader
 import com.perrigogames.life4.data.SongList
+import com.perrigogames.life4.data.SongsClearGoal
 import com.perrigogames.life4.db.ChartInfo
+import com.perrigogames.life4.db.SongChartInfo
 import com.perrigogames.life4.db.SongDatabaseHelper
 import com.perrigogames.life4.db.SongInfo
 import com.perrigogames.life4.enums.DifficultyClass
@@ -115,15 +117,23 @@ class SongDataManager: BaseModel() {
 
     // endregion
 
-    // region Queries
+    fun createChartList(goal: SongsClearGoal): List<SongChartInfo> = goal.run {
+        val dC = diffClassSet?.set
+        val dN = diffNums
+        val s = songs
+        val f = folder
 
-    fun getChartsForDifficultyNumber(difficulty: Int): List<ChartInfo> =
-        dbHelper.selectChartsByDifficultyNumber(difficulty)
+        when {
+            dC != null && dN != null -> dbHelper.selectChartsByDifficultyClassesAndNumbers(playStyle, dC, dN)
+//            dC != null && s != null -> dbHelper.selectSongsAndChartsByTitleAndDifficultyClasses(playStyle, s, dC)
+            dC != null && s != null -> throw Exception("Song lists not supported yet")
+            dC != null && f != null -> throw Exception("Folder names not supported yet")
+            dC != null -> dbHelper.selectChartsByDifficultyClasses(playStyle, dC)
+            dN != null -> dbHelper.selectChartsByDifficultyNumbers(playStyle, dN)
 
-    fun getChartsForDifficultyNumbers(difficulties: List<Int>): List<ChartInfo> =
-        dbHelper.selectChartsByDifficultyNumbers(difficulty)
-
-    // endregion
+            else -> throw Exception("Unsupported goal ${goal.id}")
+        }
+    }
 
     companion object {
         const val DEFAULT_IGNORE_VERSION = "A20_PLUS_US"

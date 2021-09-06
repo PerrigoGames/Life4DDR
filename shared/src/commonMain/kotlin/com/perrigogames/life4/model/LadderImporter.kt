@@ -149,7 +149,7 @@ class LadderImporter(
                     playStyle,
                     difficultyClass
                 ) ?: throw ChartNotFoundException(songDB.title, playStyle, difficultyClass, difficultyNumber)
-                resultDbHelper.insertResult(songDB, chartDB, clear, score)
+                resultDbHelper.insertResult(chartDB, clear, score)
 
                 if (isDebug && clear == ClearType.NO_PLAY) {
                     log("import", "${songDB.title} - ${chartDB.difficultyClass} (${chartDB.difficultyNumber})")

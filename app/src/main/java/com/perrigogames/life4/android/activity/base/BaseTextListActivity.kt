@@ -36,7 +36,7 @@ class BlockListCheckActivity: BaseTextListActivity(), KoinComponent {
         ignoreListManager.getCurrentlyIgnoredSongs().forEach {
             builder.append("(${it.id}) ${it.version} - ${it.title}\n")
         }
-        ignoreListManager.getCurrentlyIgnoredCharts().forEach { entry ->
+        ignoreListManager.getCurrentlyIgnoredCharts(PlayStyle.SINGLE).forEach { entry -> //FIXME doubles
             entry.value.forEach { chart ->
                 builder.append("(${entry.key.id}) ${entry.key.version} - ${entry.key.title} (${chart.aggregateDiffStyleString})\n")
             }

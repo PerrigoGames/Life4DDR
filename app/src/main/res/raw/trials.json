@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "major_version": 3,
   "trials": [
     {
@@ -65,7 +65,7 @@
         }, {
           "rank": "platinum",
           "score": [990000, 990000, 990000, 990000],
-          "clear": ["perfect"],
+          "clear": ["perfect", "perfect"],
           "ex_missing": 160
         }, {
           "rank": "diamond",
@@ -576,9 +576,9 @@
           "ex_missing": 40
         }
       ],
-      "total_ex": 5517,
+      "total_ex": 5451,
       "songs": [
-        { "name": "Top the Charts", "difficulty": 14, "difficulty_class": "challenge", "ex": 1401, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Top+The+Charts-jacket.webp" },
+        { "name": "Top the Charts", "difficulty": 14, "difficulty_class": "challenge", "ex": 1335, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Top+The+Charts-jacket.webp" },
         { "name": "F4SH10N", "difficulty": 14, "difficulty_class": "expert", "ex": 1293, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/F4SH10N-jacket.webp" },
         { "name": "Squeeze", "difficulty": 15, "difficulty_class": "expert", "ex": 1464, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Squeeze-jacket.webp" },
         { "name": "Diamond Night", "difficulty": 14, "difficulty_class": "challenge", "ex": 1359, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Diamond+Night-jacket.webp" }

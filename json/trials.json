@@ -58,7 +58,7 @@
       "goals": [
         {
           "rank": "silver",
-          "score": [975000, 950000, 950000, 925000]
+          "score": [975000, 950000, 925000, 925000]
         }, {
           "rank": "gold",
           "score": [995000, 995000, 990000, 990000]
@@ -172,11 +172,11 @@
           "ex_missing": 110
         }, {
           "rank": "amethyst",
-          "judge": 2,
+          "judge": 3,
           "ex_missing": 60
         }, {
           "rank": "emerald",
-          "judge": 2,
+          "judge": 3,
           "ex_missing": 40
         }, {
           "rank": "onyx",
@@ -220,15 +220,15 @@
         }, {
           "rank": "amethyst",
           "judge": 2,
-          "ex_missing": 60
+          "ex_missing": 55
         }, {
           "rank": "emerald",
           "judge": 2,
-          "ex_missing": 40
+          "ex_missing": 35
         }, {
           "rank": "onyx",
           "judge": 2,
-          "ex_missing": 25
+          "ex_missing": 20
         }
       ],
       "total_ex": 5280,
@@ -265,7 +265,7 @@
           "ex_missing": 110
         }, {
           "rank": "amethyst",
-          "judge": 2,
+          "judge": 3,
           "ex_missing": 65
         }, {
           "rank": "emerald",
@@ -358,11 +358,11 @@
           "ex_missing": 150
         }, {
           "rank": "amethyst",
-          "judge": 3,
+          "judge": 4,
           "ex_missing": 80
         }, {
           "rank": "emerald",
-          "judge": 2,
+          "judge": 3,
           "ex_missing": 55
         }, {
           "rank": "onyx",
@@ -424,7 +424,7 @@
         { "name": "桜", "difficulty": 13, "difficulty_class": "expert", "ex": 1341, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/SAKURA-jacket.webp" }
       ],
       "cover_url": "",
-      "author": "Sam-Thak"
+      "author": "rocopltx"
     },
     {
       "id": "hallowed",
@@ -525,7 +525,7 @@
           "ex_missing": 50
         }, {
           "rank": "onyx",
-          "judge": 3,
+          "judge": 2,
           "ex_missing": 35
         }
       ],
@@ -576,9 +576,9 @@
           "ex_missing": 40
         }
       ],
-      "total_ex": 5517,
+      "total_ex": 5451,
       "songs": [
-        { "name": "Top the Charts", "difficulty": 14, "difficulty_class": "challenge", "ex": 1401, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Top+The+Charts-jacket.webp" },
+        { "name": "Top the Charts", "difficulty": 14, "difficulty_class": "challenge", "ex": 1335, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Top+The+Charts-jacket.webp" },
         { "name": "F4SH10N", "difficulty": 14, "difficulty_class": "expert", "ex": 1293, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/F4SH10N-jacket.webp" },
         { "name": "Squeeze", "difficulty": 15, "difficulty_class": "expert", "ex": 1464, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Squeeze-jacket.webp" },
         { "name": "Diamond Night", "difficulty": 14, "difficulty_class": "challenge", "ex": 1359, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Diamond+Night-jacket.webp" }
@@ -643,7 +643,7 @@
           "score_indexed": [0, 0, 0, 300000]
         }, {
           "rank": "gold",
-          "score": [980000, 960000, 960000, 920000]
+          "score": [980000, 960000, 920000, 920000]
         }, {
           "rank": "platinum",
           "score": [980000, 980000, 980000, 960000]
@@ -759,7 +759,7 @@
         }, {
           "rank": "onyx",
           "judge": 2,
-          "ex_missing": 30
+          "ex_missing": 35
         }
       ],
       "total_ex": 6735,
@@ -801,7 +801,7 @@
         },{
           "rank": "emerald",
           "judge": 4,
-          "ex_missing": 65
+          "ex_missing": 70
         }, {
           "rank": "onyx",
           "judge": 3,
@@ -849,11 +849,11 @@
         },{
           "rank": "emerald",
           "judge": 6,
-          "ex_missing": 90
+          "ex_missing": 100
         }, {
           "rank": "onyx",
           "judge": 4,
-          "ex_missing": 55
+          "ex_missing": 60
         }
       ],
       "total_ex": 6471,
@@ -891,11 +891,11 @@
         }, {
           "rank": "amethyst",
           "judge": 6,
-          "ex_missing": 110
+          "ex_missing": 120
         }, {
           "rank": "emerald",
           "judge": 5,
-          "ex_missing": 75
+          "ex_missing": 80
         }, {
           "rank": "onyx",
           "judge": 4,
@@ -942,7 +942,7 @@
         }, {
           "rank": "emerald",
           "judge": 5,
-          "ex_missing": 80
+          "ex_missing": 85
         }, {
           "rank": "onyx",
           "judge": 4,
@@ -984,11 +984,11 @@
         }, {
           "rank": "amethyst",
           "judge": 8,
-          "ex_missing": 150
+          "ex_missing": 160
         }, {
           "rank": "emerald",
           "judge": 6,
-          "ex_missing": 90
+          "ex_missing": 100
         }, {
           "rank": "onyx",
           "judge": 4,
@@ -1111,15 +1111,15 @@
         }, {
           "rank": "amethyst",
           "judge": 8,
-          "ex_missing": 150
+          "ex_missing": 170
         }, {
           "rank": "emerald",
           "judge": 5,
-          "ex_missing": 90
+          "ex_missing": 110
         }, {
           "rank": "onyx",
           "judge": 4,
-          "ex_missing": 60
+          "ex_missing": 70
         }
       ],
       "total_ex": 6951,
@@ -1152,15 +1152,15 @@
         }, {
           "rank": "amethyst",
           "judge": 8,
-          "ex_missing": 170
+          "ex_missing": 180
         }, {
           "rank": "emerald",
           "judge": 6,
-          "ex_missing": 110
+          "ex_missing": 120
         }, {
           "rank": "onyx",
           "judge": 5,
-          "ex_missing": 70
+          "ex_missing": 75
         }
       ],
       "total_ex": 6750,
@@ -1237,11 +1237,11 @@
           "ex_missing": 350
         }, {
           "rank": "emerald",
-          "judge": 12,
+          "judge": 15,
           "ex_missing": 225
         }, {
           "rank": "onyx",
-          "judge": 8,
+          "judge": 10,
           "ex_missing": 160
         }
       ],
@@ -1275,11 +1275,11 @@
           "ex_missing": 300
         }, {
           "rank": "emerald",
-          "judge": 12,
+          "judge": 15,
           "ex_missing": 200
         }, {
           "rank": "onyx",
-          "judge": 8,
+          "judge": 10,
           "ex_missing": 150
         }
       ],

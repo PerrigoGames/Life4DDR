@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "major_version": 3,
   "trials": [
     {
@@ -147,6 +147,54 @@
       "author": "plasmaaa"
     },
     {
+      "id": "confectionary",
+      "name": "Confectionary",
+      "type": "trial",
+      "difficulty": 12,
+      "new":true,
+      "goals": [
+        {
+          "rank": "silver",
+          "score": [940000, 940000, 920000, 920000]
+        }, {
+          "rank": "gold",
+          "score": [985000, 985000, 985000, 980000]
+        }, {
+          "rank": "platinum",
+          "score": [996000, 996000, 990000, 900000],
+          "ex_missing": 240
+        }, {
+          "rank": "diamond",
+          "judge": 8,
+          "ex_missing": 160
+        }, {
+          "rank": "cobalt",
+          "judge": 4,
+          "ex_missing": 90
+        }, {
+          "rank": "amethyst",
+          "judge": 2,
+          "ex_missing": 50
+        }, {
+          "rank": "emerald",
+          "judge": 2,
+          "ex_missing": 35
+        }, {
+          "rank": "onyx",
+          "judge": 2,
+          "ex_missing": 20
+        }
+      ],
+      "total_ex": 4908,
+      "songs": [
+        { "name": "SODA GALAXY", "difficulty": 12, "difficulty_class": "expert", "ex": 1254, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/SODA_GALAXY.webp" },
+        { "name": "CHOCOLATE PHILOSOPHY", "difficulty": 13, "difficulty_class": "challenge", "ex": 1260, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/CHOCOLATE_PHILOSOPHY.webp" },
+        { "name": "Strawberry Chu Chu", "difficulty": 13, "difficulty_class": "expert", "ex": 1254, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Strawberry_Chu_Chu.webp" },
+        { "name": "Candy (X-Special)", "difficulty": 12, "difficulty_class": "challenge", "ex": 1140, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/CANDY(X-Special).webp" }
+      ],
+      "cover_url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/trials/mdpi/confectionary.webp"
+    },
+    {
       "id": "celestial",
       "name": "Celestial",
       "type": "trial",
@@ -197,7 +245,6 @@
       "name": "Gospel",
       "type": "trial",
       "difficulty": 13,
-      "new": true,
       "goals": [
         {
           "rank": "silver",
@@ -427,6 +474,54 @@
       "author": "Sam-Thak"
     },
     {
+      "id": "storybook",
+      "name": "Storybook",
+      "type": "trial",
+      "difficulty": 13,
+      "new": true,
+      "goals": [
+        {
+          "rank": "silver",
+          "score": [900000, 900000, 900000, 875000]
+        }, {
+          "rank": "gold",
+          "score": [980000, 980000, 970000, 970000]
+        }, {
+          "rank": "platinum",
+          "score": [990000, 990000, 990000, 985000],
+          "ex_missing": 260
+        }, {
+          "rank": "diamond",
+          "judge": 12,
+          "ex_missing": 190
+        }, {
+          "rank": "cobalt",
+          "judge": 5,
+          "ex_missing": 130
+        }, {
+          "rank": "amethyst",
+          "judge": 2,
+          "ex_missing": 75
+        }, {
+          "rank": "emerald",
+          "judge": 2,
+          "ex_missing": 50
+        }, {
+          "rank": "onyx",
+          "judge": 2,
+          "ex_missing": 35
+        }
+      ],
+      "total_ex": 5361,
+      "songs": [
+        { "name": "Une mage blanche", "difficulty": 13, "difficulty_class": "expert", "ex": 1548, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Une_mage_blanche.webp" },
+        { "name": "STERLING SILVER", "difficulty": 13, "difficulty_class": "expert", "ex": 1476, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/STERLING_SILVER.webp" },
+        { "name": "Towards the TOWER", "difficulty": 12, "difficulty_class": "expert", "ex": 1104, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Towards_the_TOWER.webp" },
+        { "name": "Neverland", "difficulty": 12, "difficulty_class": "difficult", "ex": 1233, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Neverland.webp" }
+      ],
+      "cover_url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/trials/mdpi/storybook.webp"
+    },
+    {
       "id": "hallowed",
       "name": "Hallowed",
       "type": "event",
@@ -542,7 +637,6 @@
       "name": "Superstar",
       "type": "trial",
       "difficulty": 14,
-      "new": true,
       "goals": [
         {
           "rank": "silver",
@@ -630,6 +724,54 @@
         { "name": "Second Heaven", "difficulty": 14, "difficulty_class": "challenge", "ex": 1446, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Second+Heaven-jacket.webp" },
         { "name": "Pluto The First", "difficulty": 14, "difficulty_class": "difficult", "ex": 1218, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Pluto+The+First-jacket.webp" }
       ]
+    },
+    {
+      "id": "sidequest",
+      "name": "Sidequest",
+      "type": "trial",
+      "difficulty": 14,
+      "new": true,
+      "goals": [
+        {
+          "rank": "silver",
+          "clear_indexed": ["clear", "clear", "clear", "fail"],
+          "score_indexed": [0, 0, 0, 250000]
+        }, {
+          "rank": "gold",
+          "score": [975000, 975000, 925000, 925000]
+        }, {
+          "rank": "platinum",
+          "score": [985000, 985000, 985000, 970000]
+        }, {
+          "rank": "diamond",
+          "judge": 20,
+          "ex_missing": 240
+        }, {
+          "rank": "cobalt",
+          "judge": 8,
+          "ex_missing": 160
+        }, {
+          "rank": "amethyst",
+          "judge": 6,
+          "ex_missing": 90
+        }, {
+          "rank": "emerald",
+          "judge": 4,
+          "ex_missing": 60
+        }, {
+          "rank": "onyx",
+          "judge": 3,
+          "ex_missing": 40
+        }
+      ],
+      "total_ex": 6762,
+      "songs": [
+        { "name": "Be a Hero!", "difficulty": 13, "difficulty_class": "difficult", "ex": 1740, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Be_a_Hero!.webp" },
+        { "name": "ロールプレイングゲーム", "difficulty": 14, "difficulty_class": "expert", "ex": 1623, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Role-playing_game.webp" },
+        { "name": "彼方のリフレシア", "difficulty": 15, "difficulty_class": "expert", "ex": 1695, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Kanata_no_Reflesia.webp" },
+        { "name": "Boss Rush", "difficulty": 14, "difficulty_class": "difficult", "ex": 1704, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Boss+Rush-jacket.webp" }
+      ],
+      "cover_url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/trials/mdpi/sidequest.webp"
     },
     {
       "id": "hellscape",
@@ -821,7 +963,6 @@
       "name": "Mythos",
       "type": "trial",
       "difficulty": 15,
-      "new": true,
       "goals": [
         {
           "rank": "silver",
@@ -915,7 +1056,6 @@
       "name": "Rendition",
       "type": "trial",
       "difficulty": 15,
-      "new": true,
       "goals": [
         {
           "rank": "silver",
@@ -1290,6 +1430,42 @@
         { "name": "Air Heroes", "difficulty": 18, "difficulty_class": "challenge", "ex": 1971, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Air+Heroes-jacket.webp" },
         { "name": "Reach The Sky, Without you", "difficulty": 17, "difficulty_class": "expert", "ex": 1905, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Reach+The+Sky,+Without+you-jacket.webp" }
       ]
+    },
+    {
+      "id": "dogfight",
+      "name": "Dogfight",
+      "type": "trial",
+      "difficulty": 18,
+      "new": true,
+      "goals": [
+        {
+          "rank": "diamond",
+          "score": [925000, 925000, 840000, 840000]
+        },{
+          "rank": "cobalt",
+          "score": [950000, 950000, 915000, 915000]
+        }, {
+          "rank": "amethyst",
+          "score": [985000, 985000, 950000, 950000],
+          "ex_missing": 650
+        },{
+          "rank": "emerald",
+          "score": [985000, 985000, 985000, 975000],
+          "ex_missing": 360
+        }, {
+          "rank": "onyx",
+          "score": [990000, 990000, 990000, 990000],
+          "ex_missing": 225
+        }
+      ],
+      "total_ex": 8817,
+      "songs": [
+        { "name": "ACE FOR ACES", "difficulty": 18, "difficulty_class": "challenge", "ex": 2406, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/ACE_FOR_ACES.webp" },
+        { "name": "Trigger", "difficulty": 18, "difficulty_class": "challenge", "ex": 1875, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Trigger.webp" },
+        { "name": "ÆTHER", "difficulty": 17, "difficulty_class": "expert", "ex": 2130, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/AETHER.webp" },
+        { "name": "SABER WING (Akira Ishihara Headshot mix)", "difficulty": 17, "difficulty_class": "challenge", "ex": 1569, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/SABER+WING+(AKIRA+ISHIHARA+Headshot+mix)-jacket.webp" }
+      ],
+      "cover_url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/trials/mdpi/dogfight.webp"
     },
     {
       "id": "quantum",

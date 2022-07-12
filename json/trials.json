@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "major_version": 3,
   "trials": [
     {
@@ -1458,7 +1458,7 @@
           "ex_missing": 225
         }
       ],
-      "total_ex": 8817,
+      "total_ex": 7980,
       "songs": [
         { "name": "ACE FOR ACES", "difficulty": 18, "difficulty_class": "challenge", "ex": 2406, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/ACE_FOR_ACES.webp" },
         { "name": "Trigger", "difficulty": 18, "difficulty_class": "challenge", "ex": 1875, "url": "https://life4-mobile.s3.us-west-1.amazonaws.com/images/jackets/songs/Trigger.webp" },

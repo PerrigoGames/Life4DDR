@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "major_version": 3,
   "trials": [
     {
@@ -52,7 +52,7 @@
     },
     {
       "id": "heartbreak",
-      "name": "Heartbreak",
+      "name": "Heartbreak (retired)",
       "type": "trial",
       "difficulty": 12,
       "goals": [
@@ -334,7 +334,7 @@
     },
     {
       "id": "primal",
-      "name": "Primal",
+      "name": "Primal (retired)",
       "type": "trial",
       "difficulty": 13,
       "author": "Kingly",
@@ -680,7 +680,7 @@
     },
     {
       "id": "countdown",
-      "name": "Countdown",
+      "name": "Countdown (retired)",
       "type": "trial",
       "difficulty": 14,
       "author": "Nebel",
@@ -1504,7 +1504,7 @@
     },
     {
       "id": "origin",
-      "name": "Origin",
+      "name": "Origin (retired)",
       "type": "trial",
       "difficulty": 18,
       "goals": [

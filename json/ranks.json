@@ -340,8 +340,8 @@
 		{ "id": 8033, "t": "songs", "d": 15, "song_count": 65, "clear_type": "perfect" },
 		{ "id": 8034, "t": "songs", "d": 15, "song_count": 75 },
 		{ "id": 8035, "t": "songs", "d": 15, "song_count": 80, "clear_type": "perfect" },
-		{ "id": 8036, "t": "songs", "d": 15, "song_count": 90, "clear_type": "perfect" },
-		{ "id": 8037, "t": "songs", "d": 15, "song_count": 98, "clear_type": "perfect" },
+		{ "id": 8036, "t": "songs", "d": 15, "song_count": 95, "clear_type": "perfect" },
+		{ "id": 8037, "t": "songs", "d": 15, "song_count": 110, "clear_type": "perfect" },
 		{ "id": 8038, "t": "songs", "d": 15 },
 		{ "id": 8066, "t": "songs", "d": 15, "clear_type": "life4" },
 		{ "id": 8067, "t": "songs", "d": 15, "clear_type": "good" },
@@ -471,6 +471,7 @@
 		{ "id": 9025, "t": "songs", "d": 17, "song_count": 7 },
 		{ "id": 9026, "t": "songs", "d": 17, "song_count": 8, "clear_type": "perfect" },
 		{ "id": 9027, "t": "songs", "d": 17, "song_count": 10 },
+		{ "id": 90271, "t": "songs", "d": 17, "song_count": 10, "score": 990000 },
 		{ "id": 9028, "t": "songs", "d": 17, "song_count": 12 },
 		{ "id": 9029, "t": "songs", "d": 17, "song_count": 12, "clear_type": "perfect" },
 		{ "id": 9030, "t": "songs", "d": 17, "song_count": 15 },
@@ -594,12 +595,18 @@
 		{ "id": 10004, "t": "songs", "d": 19, "song_count": 2, "score": 740000 },
 		{ "id": 10023, "t": "songs", "d": 19, "song_count": 3 },
 		{ "id": 10005, "t": "songs", "d": 19, "song_count": 3, "score": 750000 },
+		{ "id": 100240, "t": "songs", "d": 19, "song_count": 4 },
+		{ "id": 100241, "t": "songs", "d": 19, "song_count": 4, "score": 750000 },
+		{ "id": 100242, "t": "songs", "d": 19, "song_count": 4, "score": 775000 },
+		{ "id": 100250, "t": "songs", "d": 19, "song_count": 5 },
+		{ "id": 100251, "t": "songs", "d": 19, "song_count": 5, "score": 790000 },
+		{ "id": 100252, "t": "songs", "d": 19, "song_count": 5, "score": 805000 },
 		{ "id": 10006, "t": "songs", "d": 19 },
 		{ "id": 10024, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"] },
 		{ "id": 10007, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 775000 },
 		{ "id": 10008, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 790000 },
 		{ "id": 10009, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 800000 },
-		{ "id": 10010, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 815000 },
+		{ "id": 10010, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 820000 },
 		{ "id": 10011, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 825000 },
 		{ "id": 10012, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 830000 },
 		{ "id": 10013, "t": "songs", "d": 19, "song_exceptions": ["ENDYMION"], "score": 840000 },
@@ -833,22 +840,22 @@
 				{
 					"rank": "amethyst1",
 					"play_style": "single",
-					"mandatory_goal_ids": [ 7547, 8068, 8051, 8031, 8565, 8550, 8524, 9072, 9052, 9533, 9539, 9511, 10024, 10007, 5001, 4026 ]
+					"mandatory_goal_ids": [ 7547, 8068, 8051, 8031, 8565, 8550, 8524, 9072, 9052, 90271, 9533, 9539, 9511, 100240, 100241, 5001, 4026 ]
 				},
 				{
 					"rank": "amethyst2",
 					"play_style": "single",
-					"mandatory_goal_ids": [ 7547, 7548, 8068, 8052, 8033, 8565, 8551, 8526, 9072, 9053, 9016, 9533, 9540, 9512, 10024, 10008, 5002, 4027 ]
+					"mandatory_goal_ids": [ 7547, 7548, 8068, 8052, 8033, 8565, 8551, 8526, 9072, 9053, 9016, 9533, 9540, 9512, 100240, 100242, 5002, 4027 ]
 				},
 				{
 					"rank": "amethyst3",
 					"play_style": "single",
-					"mandatory_goal_ids": [ 7547, 7549, 8068, 8053, 8035, 8566, 8552, 8528, 9072, 9054, 9018, 9533, 9541, 9513, 10006, 10009, 5003, 4028 ]
+					"mandatory_goal_ids": [ 7547, 7549, 8068, 8053, 8035, 8566, 8552, 8528, 9072, 9054, 9018, 9533, 9541, 9513, 100250, 100251, 5003, 4028 ]
 				},
 				{
 					"rank": "amethyst4",
 					"play_style": "single",
-					"mandatory_goal_ids": [ 7547, 7550, 8068, 8054, 8036, 8566, 8553, 8530, 9072, 9055, 9020, 9533, 9542, 9514, 10006, 10010, 2503, 5004, 4029 ]
+					"mandatory_goal_ids": [ 7547, 7550, 8068, 8054, 8036, 8566, 8553, 8530, 9072, 9055, 9020, 9533, 9542, 9514, 100250, 100252, 2503, 5004, 4029 ]
 				},
 				{
 					"rank": "amethyst5",

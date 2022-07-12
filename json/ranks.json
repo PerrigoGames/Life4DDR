@@ -409,10 +409,10 @@
 		{ "id": 8532, "t": "songs", "d": 16, "song_count": 42, "clear_type": "perfect" },
 		{ "id": 8533, "t": "songs", "d": 16, "song_count": 50, "clear_type": "perfect" },
 		{ "id": 8534, "t": "songs", "d": 16, "song_count": 55 },
-		{ "id": 8535, "t": "songs", "d": 16, "song_count": 55, "clear_type": "perfect" },
-		{ "id": 8536, "t": "songs", "d": 16, "song_count": 60, "clear_type": "perfect" },
-		{ "id": 8537, "t": "songs", "d": 16, "song_count": 65, "clear_type": "perfect" },
-		{ "id": 8538, "t": "songs", "d": 16, "song_count": 70, "clear_type": "perfect" },
+		{ "id": 8535, "t": "songs", "d": 16, "song_count": 56, "clear_type": "perfect" },
+		{ "id": 8536, "t": "songs", "d": 16, "song_count": 64, "clear_type": "perfect" },
+		{ "id": 8537, "t": "songs", "d": 16, "song_count": 72, "clear_type": "perfect" },
+		{ "id": 8538, "t": "songs", "d": 16, "song_count": 80, "clear_type": "perfect" },
 		{ "id": 8539, "t": "songs", "d": 16 },
 		{ "id": 8565, "t": "songs", "d": 16, "clear_type": "life4" },
 		{ "id": 8566, "t": "songs", "d": 16, "clear_type": "good" },
@@ -475,8 +475,8 @@
 		{ "id": 9028, "t": "songs", "d": 17, "song_count": 12 },
 		{ "id": 9029, "t": "songs", "d": 17, "song_count": 12, "clear_type": "perfect" },
 		{ "id": 9030, "t": "songs", "d": 17, "song_count": 15 },
-		{ "id": 9031, "t": "songs", "d": 17, "song_count": 15, "clear_type": "perfect" },
-		{ "id": 9032, "t": "songs", "d": 17, "song_count": 18, "clear_type": "perfect" },
+		{ "id": 9031, "t": "songs", "d": 17, "song_count": 16, "clear_type": "perfect" },
+		{ "id": 9032, "t": "songs", "d": 17, "song_count": 20, "clear_type": "perfect" },
 		{ "id": 9033, "t": "songs", "d": 17, "song_count": 20 },
 		{ "id": 9034, "t": "songs", "d": 17, "song_count": 21, "clear_type": "perfect" },
 		{ "id": 9035, "t": "songs", "d": 17, "song_count": 25, "clear_type": "perfect" },
@@ -887,7 +887,7 @@
 				{
 					"rank": "emerald5",
 					"play_style": "single",
-					"mandatory_goal_ids": [ 7547, 7556, 8056, 8060, 8567, 8559, 8538, 9074, 9061, 9034, 9533, 9548, 9519, 10006, 10016, 2509, 5010, 4036, 4037 ]
+					"mandatory_goal_ids": [ 7547, 7556, 8056, 8060, 8567, 8559, 8538, 9074, 9061, 9035, 9533, 9548, 9519, 10006, 10016, 2509, 5010, 4036, 4037 ]
 				},
 
 

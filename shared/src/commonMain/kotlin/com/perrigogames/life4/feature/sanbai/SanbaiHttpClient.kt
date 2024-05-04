@@ -1,4 +1,4 @@
-package com.perrigogames.life4.api
+package com.perrigogames.life4.feature.sanbai
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.HttpTimeout

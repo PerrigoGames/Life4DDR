@@ -1,4 +1,4 @@
-package com.perrigogames.life4.ktor
+package com.perrigogames.life4.feature.sanbai
 
 import com.perrigogames.life4.feature.partialdifficulty.PartialDifficultyResponse
 import kotlinx.serialization.SerialName

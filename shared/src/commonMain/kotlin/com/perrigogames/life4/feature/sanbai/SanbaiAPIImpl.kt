@@ -1,4 +1,4 @@
-package com.perrigogames.life4.ktor
+package com.perrigogames.life4.feature.sanbai
 
 //class SanbaiAPIImpl(private val log: co.touchlab.kermit.Logger) : SanbaiAPI, KoinComponent {
 //

@@ -25,12 +25,11 @@ class LadderDataManager: BaseModel() {
 
     private val ignoreListManager: IgnoreListManager by inject()
     private val ladderDialogs: LadderDialogs by inject()
-    private val dataReader: LocalDataReader by inject(named(RANKS_FILE_NAME))
 
     //
     // Ladder Data
     //
-    private val data = LadderRemoteData(dataReader)
+    private val data = LadderRemoteData()
 
     val dataVersionString: Flow<String> =
         data.versionState.map { it.versionString }

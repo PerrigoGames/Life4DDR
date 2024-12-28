@@ -13,7 +13,9 @@ import com.perrigogames.life4.model.mapping.LadderGoalMapper
 import com.perrigogames.life4.util.ViewState
 import com.perrigogames.life4.util.ifNull
 import com.perrigogames.life4.util.toViewState
+import dev.icerock.moko.mvvm.flow.CStateFlow
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
+import dev.icerock.moko.mvvm.flow.cStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -40,7 +42,7 @@ class GoalListViewModel(private val config: GoalListConfig) : ViewModel(), KoinC
         .onEach { logger.v { "requirementsFlow -> $it" } }
 
     private val _state = MutableStateFlow<ViewState<UILadderData, String>>(ViewState.Loading).cMutableStateFlow()
-    val state: StateFlow<ViewState<UILadderData, String>> = _state.asStateFlow()
+    val state: CStateFlow<ViewState<UILadderData, String>> = _state.cStateFlow()
 
     private var entry: RankEntry? = null
 

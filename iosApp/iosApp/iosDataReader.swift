@@ -18,7 +18,7 @@ class iosUncachedDataReader: LocalUncachedDataReader {
     }
     
     func loadInternalString() -> String {
-      return fileResource.readText()
+        return fileResource.readText()
     }
 }
 

@@ -26,11 +26,10 @@ class IgnoreListManager: BaseModel() {
     private val json: Json by inject()
     private val logger: Logger by injectLogger("IgnoreList")
     private val settings: Settings by inject()
-    private val dataReader: LocalDataReader by inject(named(IGNORES_FILE_NAME))
     private val songDataManager: SongDataManager by inject()
     private val ladderListSelectionSettings: LadderListSelectionSettings by inject()
 
-    private val data = IgnoreListRemoteData(dataReader)
+    private val data = IgnoreListRemoteData()
 
     val ignoreListsFlow: Flow<IgnoreListData> = data.dataState
         .unwrapLoaded()

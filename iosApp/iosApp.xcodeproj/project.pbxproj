@@ -10,9 +10,15 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		19424A4F2B8EB0AD0054E112 /* RankListSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19424A4E2B8EB0AD0054E112 /* RankListSwiftUI.swift */; };
+		1945D7F52C2790560037A976 /* PlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945D7F42C2790560037A976 /* PlayerProfileView.swift */; };
+		1945D7F92C28FD500037A976 /* RankImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1945D7F82C28FD500037A976 /* RankImageView.swift */; };
 		1956B5432B9F8F5900BD5FF8 /* iosDataReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1956B5422B9F8F5900BD5FF8 /* iosDataReader.swift */; };
-		195C48132B8D587D003439C9 /* FirstRunRankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C48122B8D587D003439C9 /* FirstRunRankListView.swift */; };
+		195C48132B8D587D003439C9 /* RankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195C48122B8D587D003439C9 /* RankListView.swift */; };
 		197ECD712C1E358C003B17C2 /* PlacementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197ECD702C1E358C003B17C2 /* PlacementListView.swift */; };
+		198234512C2B443F0033C7E1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234502C2B443F0033C7E1 /* SettingsView.swift */; };
+		198234542C2B6D300033C7E1 /* ScoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234532C2B6D300033C7E1 /* ScoreListView.swift */; };
+		198234562C2CDA160033C7E1 /* TrialDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234552C2CDA160033C7E1 /* TrialDetailsView.swift */; };
+		198234582C2E2CF60033C7E1 /* PlacementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234572C2E2CF50033C7E1 /* PlacementDetailsView.swift */; };
 		198D1B982B8AAB9400021CD7 /* FirstRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D1B972B8AAB9400021CD7 /* FirstRunView.swift */; };
 		19BBD3A62B92C19600700A66 /* LadderSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BBD3A52B92C19600700A66 /* LadderSwiftUI.swift */; };
 		19C92BD62C13DDE600570D3C /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD12C13DDE600570D3C /* ViewModelState.swift */; };
@@ -20,17 +26,23 @@
 		19C92BD82C13DDE600570D3C /* ViewModelStateNullable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD32C13DDE600570D3C /* ViewModelStateNullable.swift */; };
 		19C92BD92C13DDE600570D3C /* ViewModelBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD42C13DDE600570D3C /* ViewModelBinding.swift */; };
 		19C92BDA2C13DDE600570D3C /* ViewModelObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD52C13DDE600570D3C /* ViewModelObservable.swift */; };
+		19E4E8572C2514F300583A7B /* TrialListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4E8562C2514F300583A7B /* TrialListView.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19424A4E2B8EB0AD0054E112 /* RankListSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankListSwiftUI.swift; sourceTree = "<group>"; };
+		1945D7F42C2790560037A976 /* PlayerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProfileView.swift; sourceTree = "<group>"; };
+		1945D7F82C28FD500037A976 /* RankImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankImageView.swift; sourceTree = "<group>"; };
 		1956B5422B9F8F5900BD5FF8 /* iosDataReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iosDataReader.swift; sourceTree = "<group>"; };
-		195C48122B8D587D003439C9 /* FirstRunRankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunRankListView.swift; sourceTree = "<group>"; };
+		195C48122B8D587D003439C9 /* RankListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankListView.swift; sourceTree = "<group>"; };
 		197ECD702C1E358C003B17C2 /* PlacementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementListView.swift; sourceTree = "<group>"; };
+		198234502C2B443F0033C7E1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		198234532C2B6D300033C7E1 /* ScoreListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreListView.swift; sourceTree = "<group>"; };
+		198234552C2CDA160033C7E1 /* TrialDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialDetailsView.swift; sourceTree = "<group>"; };
+		198234572C2E2CF50033C7E1 /* PlacementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementDetailsView.swift; sourceTree = "<group>"; };
 		198D1B972B8AAB9400021CD7 /* FirstRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunView.swift; sourceTree = "<group>"; };
 		19BBD3A52B92C19600700A66 /* LadderSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LadderSwiftUI.swift; sourceTree = "<group>"; };
 		19C92BD12C13DDE600570D3C /* ViewModelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
@@ -38,9 +50,9 @@
 		19C92BD32C13DDE600570D3C /* ViewModelStateNullable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelStateNullable.swift; sourceTree = "<group>"; };
 		19C92BD42C13DDE600570D3C /* ViewModelBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelBinding.swift; sourceTree = "<group>"; };
 		19C92BD52C13DDE600570D3C /* ViewModelObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelObservable.swift; sourceTree = "<group>"; };
+		19E4E8562C2514F300583A7B /* TrialListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialListView.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* LIFE4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LIFE4.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,9 +86,53 @@
 			path = ladder;
 			sourceTree = "<group>";
 		};
+		1945D7F32C2790440037A976 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				1945D7F42C2790560037A976 /* PlayerProfileView.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		1945D7F62C28FD1E0037A976 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1945D7F72C28FD2B0037A976 /* swiftUI */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1945D7F72C28FD2B0037A976 /* swiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				1945D7F82C28FD500037A976 /* RankImageView.swift */,
+			);
+			path = swiftUI;
+			sourceTree = "<group>";
+		};
+		1982344F2C2B442F0033C7E1 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				198234502C2B443F0033C7E1 /* SettingsView.swift */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		198234522C2B6BF40033C7E1 /* scorelist */ = {
+			isa = PBXGroup;
+			children = (
+				198234532C2B6D300033C7E1 /* ScoreListView.swift */,
+			);
+			path = scorelist;
+			sourceTree = "<group>";
+		};
 		198D1B952B8AAB8000021CD7 /* feature */ = {
 			isa = PBXGroup;
 			children = (
+				198234522C2B6BF40033C7E1 /* scorelist */,
+				1982344F2C2B442F0033C7E1 /* settings */,
+				1945D7F32C2790440037A976 /* profile */,
+				19E4E8552C2514DE00583A7B /* trial */,
 				19424A502B8EB1400054E112 /* ladder */,
 				198D1B992B8C19AC00021CD7 /* ranklist */,
 				198D1B962B8AAB8600021CD7 /* firstrun */,
@@ -88,8 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				198D1B972B8AAB9400021CD7 /* FirstRunView.swift */,
-				195C48122B8D587D003439C9 /* FirstRunRankListView.swift */,
+				195C48122B8D587D003439C9 /* RankListView.swift */,
 				197ECD702C1E358C003B17C2 /* PlacementListView.swift */,
+				198234572C2E2CF50033C7E1 /* PlacementDetailsView.swift */,
 			);
 			path = firstrun;
 			sourceTree = "<group>";
@@ -100,6 +157,15 @@
 				19424A4E2B8EB0AD0054E112 /* RankListSwiftUI.swift */,
 			);
 			path = ranklist;
+			sourceTree = "<group>";
+		};
+		19E4E8552C2514DE00583A7B /* trial */ = {
+			isa = PBXGroup;
+			children = (
+				19E4E8562C2514F300583A7B /* TrialListView.swift */,
+				198234552C2CDA160033C7E1 /* TrialDetailsView.swift */,
+			);
+			path = trial;
 			sourceTree = "<group>";
 		};
 		42799AB246E5F90AF97AA0EF /* Frameworks */ = {
@@ -130,10 +196,10 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				1945D7F62C28FD1E0037A976 /* view */,
 				190180862C0D7CA900213E13 /* mokoMvvmFlowSwiftUI */,
 				198D1B952B8AAB8000021CD7 /* feature */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -260,18 +326,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				19C92BD82C13DDE600570D3C /* ViewModelStateNullable.swift in Sources */,
+				1945D7F92C28FD500037A976 /* RankImageView.swift in Sources */,
 				19C92BDA2C13DDE600570D3C /* ViewModelObservable.swift in Sources */,
+				198234562C2CDA160033C7E1 /* TrialDetailsView.swift in Sources */,
+				198234512C2B443F0033C7E1 /* SettingsView.swift in Sources */,
 				1956B5432B9F8F5900BD5FF8 /* iosDataReader.swift in Sources */,
 				197ECD712C1E358C003B17C2 /* PlacementListView.swift in Sources */,
 				198D1B982B8AAB9400021CD7 /* FirstRunView.swift in Sources */,
-				195C48132B8D587D003439C9 /* FirstRunRankListView.swift in Sources */,
+				195C48132B8D587D003439C9 /* RankListView.swift in Sources */,
 				19C92BD92C13DDE600570D3C /* ViewModelBinding.swift in Sources */,
 				19C92BD62C13DDE600570D3C /* ViewModelState.swift in Sources */,
 				19424A4F2B8EB0AD0054E112 /* RankListSwiftUI.swift in Sources */,
 				19C92BD72C13DDE600570D3C /* CFlowExt.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				198234542C2B6D300033C7E1 /* ScoreListView.swift in Sources */,
+				198234582C2E2CF60033C7E1 /* PlacementDetailsView.swift in Sources */,
+				1945D7F52C2790560037A976 /* PlayerProfileView.swift in Sources */,
 				19BBD3A62B92C19600700A66 /* LadderSwiftUI.swift in Sources */,
+				19E4E8572C2514F300583A7B /* TrialListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

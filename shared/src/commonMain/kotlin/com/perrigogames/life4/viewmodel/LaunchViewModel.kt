@@ -2,6 +2,8 @@ package com.perrigogames.life4.viewmodel
 
 import com.perrigogames.life4.feature.firstrun.FirstRunSettingsManager
 import com.perrigogames.life4.feature.firstrun.InitState
+import dev.icerock.moko.mvvm.flow.CFlow
+import dev.icerock.moko.mvvm.flow.cFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -14,7 +16,7 @@ class LaunchViewModel : ViewModel(), KoinComponent {
     private val firstRunSettingsManager: FirstRunSettingsManager by inject()
 
     private val _launchState = MutableSharedFlow<InitState?>()
-    val launchState: Flow<InitState?> = _launchState
+    val launchState: CFlow<InitState?> = _launchState.cFlow()
 
     init {
         viewModelScope.launch {

@@ -1,5 +1,8 @@
 package com.perrigogames.life4.android.feature.settings
 
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -17,11 +21,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alorma.compose.settings.ui.SettingsMenuLink
 import com.perrigogames.life4.android.compose.LIFE4Theme
 import com.perrigogames.life4.android.compose.Paddings
-import com.perrigogames.life4.feature.settings.SettingsAction
-import com.perrigogames.life4.feature.settings.UISettingsItem
-import com.perrigogames.life4.feature.settings.UISettingsData
-import com.perrigogames.life4.feature.settings.UISettingsMocks
-import com.perrigogames.life4.feature.settings.SettingsViewModel
+import com.perrigogames.life4.feature.settings.*
 import dev.icerock.moko.mvvm.createViewModelFactory
 
 @Composable
@@ -33,6 +33,8 @@ fun SettingsScreen(
         factory = createViewModelFactory { SettingsViewModel(onClose, onNavigateToCredits) }
     ),
 ) {
+    val context = LocalContext.current
+
     val state = viewModel.state.collectAsState()
     state.value?.let { data ->
         SettingsScreen(
@@ -40,6 +42,26 @@ fun SettingsScreen(
             modifier = modifier,
             onAction = { viewModel.handleAction(it) }
         )
+    }
+    LaunchedEffect(Unit) {
+        viewModel.events.collect { event ->
+            when(event) {
+                is SettingsEvent.WebLink -> {
+                    Log.v("Settings", "Opening web link ${event.url}")
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(event.url))
+                    context.startActivity(intent)
+                }
+                is SettingsEvent.Email -> {
+                    Log.v("Settings", "Opening email client to ${event.email}")
+                    val emailUri = Uri.parse(
+//                        "mailto:${event.email}?subject=${Uri.encode(subject)}&body=${Uri.encode(body)}"
+                        "mailto:${event.email}"
+                    )
+                    val intent = Intent(Intent.ACTION_SENDTO, emailUri)
+                    context.startActivity(intent)
+                }
+            }
+        }
     }
 }
 

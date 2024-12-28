@@ -11,20 +11,18 @@ import Shared
 
 struct PlacementListView: View {
     @Environment(\.colorScheme) var colorScheme
+    var isFirstRun: Bool = false
     @ObservedObject var viewModel: PlacementListViewModel = PlacementListViewModel()
     @State var data: UIPlacementListScreen?
-    var onRanksClicked: () -> (Void)
-    var goToMainView: () -> (Void)
-    // TODO: implement onPlacementSelected, which will require PlacementDetailsView
+    var onRanksClicked: () -> (Void) = {}
+    var goToMainView: () -> (Void) = {}
+    var onPlacementSelected: (UIPlacement) -> Void = {_ in }
     
     @State var selectedPlacement: String?
-    @State var closeConfirmShown: Bool = false
+    @State var skipPlacementAlert: Bool = false
     
     var body: some View {
         VStack {
-            Text(data?.titleText.localized() ?? "")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(.system(size: 32, weight: .heavy))
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     Text(data?.headerText.localized() ?? "")
@@ -40,47 +38,54 @@ struct PlacementListView: View {
                                 } else {
                                     selectedPlacement = placement.id
                                 }
+                            },
+                            onPlacementSelected: {
+                                onPlacementSelected(placement)
                             }
                         )
                     }
                 }
             }
-            Button {
-                withAnimation {
-                    viewModel.setFirstRunState(state: InitState.ranks)
-                    onRanksClicked()
+            if isFirstRun {
+                Button {
+                    withAnimation {
+                        viewModel.setFirstRunState(state: InitState.ranks)
+                        onRanksClicked()
+                    }
+                } label: {
+                    Text(MR.strings().select_rank_instead.desc().localized())
+                        .padding()
+                        .background(Color(red: 1, green: 0, blue: 0.44))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                        .font(.system(size: 16, weight: .medium))
                 }
-            } label: {
-                Text(MR.strings().select_rank_instead.desc().localized())
-                    .padding()
-                    .background(Color(red: 1, green: 0, blue: 0.44))
-                    .foregroundColor(.white)
-                    .clipShape(Capsule())
-                    .font(.system(size: 16, weight: .medium))
-            }
-            Button {
-                withAnimation {
-                    closeConfirmShown = true
+                Button {
+                    withAnimation {
+                        skipPlacementAlert = true
+                    }
+                } label: {
+                    Text(MR.strings().start_no_rank.desc().localized())
+                        .padding()
+                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                        .font(.system(size: 16, weight: .medium))
+                }.alert(isPresented: $skipPlacementAlert) {
+                    Alert(
+                        title: Text(MR.strings().placement_close_confirm_title.desc().localized()),
+                        message: Text(MR.strings().placement_close_confirm_body.desc().localized()),
+                        primaryButton: .default(Text("Confirm")) {
+                            viewModel.setFirstRunState(state: InitState.done)
+                            goToMainView()
+                        },
+                        secondaryButton: .cancel()
+                    )
                 }
-            } label: {
-                Text(MR.strings().start_no_rank.desc().localized())
-                    .padding()
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                    .font(.system(size: 16, weight: .medium))
-            }.alert(isPresented: $closeConfirmShown) {
-                Alert(
-                    title: Text(MR.strings().placement_close_confirm_title.desc().localized()),
-                    message: Text(MR.strings().placement_close_confirm_body.desc().localized()),
-                    primaryButton: .destructive(Text("Confirm")) {
-                        viewModel.setFirstRunState(state: InitState.done)
-                        goToMainView()
-                    },
-                    secondaryButton: .cancel()
-                )
             }
         }
         .padding(16)
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(isFirstRun)
+        .navigationTitle(data?.titleText.localized() ?? "")
+        .navigationBarTitleDisplayMode(.large)
         .onAppear {
             viewModel.screenData.subscribe { data in
                 if let currentData = data {
@@ -97,6 +102,7 @@ struct PlacementItem: View {
     var data: UIPlacement
     var expanded: Bool = false
     var onExpand: () -> (Void)
+    var onPlacementSelected: () -> (Void)
     
     var body: some View {
         let rankString = data.placementName.desc().localized()
@@ -122,7 +128,7 @@ struct PlacementItem: View {
                     }
                     Button {
                         withAnimation {
-                            
+                            onPlacementSelected()
                         }
                     } label: {
                         Text(MR.strings().placement_start.desc().localized())
@@ -157,17 +163,18 @@ struct PlacementSongItem: View {
 
             VStack {
                 Text(data.songNameText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(Color(textColor))
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
-//                Text(data.subtitleText)
-//                    .font(.system(size: 14, weight: .bold))
-//                    .foregroundColor(Color(textColor))
-//                    .minimumScaleFactor(0.5)
-//                    .lineLimit(1)
+                Text(data.subtitleText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 14, weight: .bold))
+                    .foregroundColor(Color(textColor))
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack {
                 Text(data.chartString)
@@ -178,12 +185,12 @@ struct PlacementSongItem: View {
                     .foregroundColor(Color(data.difficultyClass.colorRes.getUIColor()))
             }
             .padding(8)
-            .background(Color(red: 0.1, green: 0.1, blue: 0.1))
+            .background(Color("difficultyContainer"))
             .clipShape(RoundedRectangle(cornerRadius: 8.0))
         }
     }
 }
 
 #Preview {
-    PlacementListView(onRanksClicked: {}, goToMainView: {})
+    PlacementListView()
 }

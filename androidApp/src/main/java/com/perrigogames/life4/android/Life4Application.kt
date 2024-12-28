@@ -2,11 +2,11 @@ package com.perrigogames.life4.android
 
 import android.app.Application
 import android.content.Context
-import androidx.preference.PreferenceManager
 import com.perrigogames.life4.AppInfo
 import com.perrigogames.life4.MR
 import com.perrigogames.life4.android.util.AndroidNotifications
 import com.perrigogames.life4.android.util.setupNotifications
+import com.perrigogames.life4.feature.motd.MotdManager
 import com.perrigogames.life4.feature.placements.PlacementManager
 import com.perrigogames.life4.feature.songlist.SongDataManager
 import com.perrigogames.life4.feature.trials.TrialManager
@@ -19,7 +19,6 @@ import com.perrigogames.life4.ktor.GithubDataAPI.Companion.SONGS_FILE_NAME
 import com.perrigogames.life4.ktor.GithubDataAPI.Companion.TRIALS_FILE_NAME
 import com.perrigogames.life4.makeNativeModule
 import com.perrigogames.life4.model.LadderDataManager
-import com.perrigogames.life4.model.MotdManager
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 

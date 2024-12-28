@@ -3,7 +3,9 @@ package com.perrigogames.life4.feature.songresults
 import co.touchlab.kermit.Logger
 import com.perrigogames.life4.db.ChartResult
 import com.perrigogames.life4.db.ResultDatabaseHelper
+import com.perrigogames.life4.feature.songlist.Chart
 import com.perrigogames.life4.feature.songlist.SongDataManager
+import com.perrigogames.life4.feature.songlist.SongLibrary
 import com.perrigogames.life4.injectLogger
 import com.perrigogames.life4.model.BaseModel
 import dev.icerock.moko.mvvm.flow.CStateFlow
@@ -31,12 +33,7 @@ class SongResultsManager: BaseModel() {
                 results
             ) { songData, results ->
                 logger.d { "Updating with ${songData.charts.size} charts and ${results.size} results" }
-                songData.charts.map { chart ->
-                    ChartResultPair(
-                        chart = chart,
-                        result = results.firstOrNull { chart.matches(it) }
-                    )
-                }
+                matchCharts(songData, results)
             }
                 .collect(_library)
         }
@@ -55,6 +52,24 @@ class SongResultsManager: BaseModel() {
         mainScope.launch {
             resultDbHelper.deleteAll()
             results.emit(emptyList())
+        }
+    }
+
+    private fun matchCharts(
+        library: SongLibrary,
+        results: List<ChartResult>
+    ): List<ChartResultPair> {
+        val matches = mutableMapOf<Chart, ChartResult>()
+        results.forEach { result ->
+            library.charts
+                .firstOrNull { chart -> chart.matches(result) }
+                ?.let { chart -> matches[chart] = result }
+        }
+        return library.charts.map { chart ->
+            ChartResultPair(
+                chart = chart,
+                result = matches[chart]
+            )
         }
     }
 }

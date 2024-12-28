@@ -3,12 +3,14 @@ package com.perrigogames.life4
 import co.touchlab.kermit.Logger
 import co.touchlab.kermit.StaticConfig
 import co.touchlab.kermit.platformLogWriter
+import com.perrigogames.life4.api.*
 import com.perrigogames.life4.api.base.LocalDataReader
 import com.perrigogames.life4.api.base.LocalUncachedDataReader
 import com.perrigogames.life4.db.GoalDatabaseHelper
 import com.perrigogames.life4.db.ResultDatabaseHelper
 import com.perrigogames.life4.feature.firstrun.FirstRunSettingsManager
 import com.perrigogames.life4.feature.ladder.LadderGoalProgressManager
+import com.perrigogames.life4.feature.motd.*
 import com.perrigogames.life4.feature.placements.PlacementManager
 import com.perrigogames.life4.feature.profile.UserRankManager
 import com.perrigogames.life4.feature.settings.LadderListSelectionSettings
@@ -67,7 +69,7 @@ val coreModule = module {
 
     single { PlacementManager() }
     single { MajorUpdateManager() }
-    single { MotdManager() }
+    single<MotdManager> { DefaultMotdManager() }
     single { LadderDataManager() }
     single { SongResultsManager() }
     single { LadderGoalProgressManager() }
@@ -84,6 +86,7 @@ val coreModule = module {
     single { UserRankManager() }
     single { GoalStateManager() }
     single { LadderGoalMapper() }
+    single<MotdSettings> { DefaultMotdSettings() }
 
     // platformLogWriter() is a relatively simple config option, useful for local debugging. For production
     // uses you *may* want to have a more robust configuration from the native platform. In KaMP Kit,
@@ -120,6 +123,11 @@ fun makeNativeModule(
         single(named(GithubDataAPI.RANKS_FILE_NAME)) { ranksReader }
         single(named(GithubDataAPI.SONGS_FILE_NAME)) { songsReader }
         single(named(GithubDataAPI.TRIALS_FILE_NAME)) { trialsReader }
+        single { IgnoreListRemoteData() }
+        single { LadderRemoteData() }
+        single { MotdLocalRemoteData() }
+        single { SongListRemoteData() }
+        single { TrialRemoteData() }
         additionalItems()
     }
 }

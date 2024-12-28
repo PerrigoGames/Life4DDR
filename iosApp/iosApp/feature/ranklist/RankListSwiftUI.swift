@@ -11,87 +11,75 @@ import Shared
 
 struct RankSelection: View {    
     @Environment(\.colorScheme) var colorScheme
-    var noRank: UINoRank
-    var onRankClicked: (LadderRank?) -> (Void)
-    var onRankRejected: () -> (Void)
-    var categories: Dictionary<LadderRankClass?, [LadderRank?]>
-    var categoriesList: [LadderRankClass?] = []
-    @State var selectedCategory: LadderRankClass?
-    @State var showSelectorPanel: Bool = false
-    @State var compressSelectorPanel: Bool = false
-        
-    init(ranks: [LadderRank?] = LadderRank.entries, noRank: UINoRank = UINoRank.Companion().DEFAULT, onRankClicked: @escaping (LadderRank?) -> (Void), onRankRejected: @escaping () -> Void) {
-        self.noRank = noRank
-        self.onRankClicked = onRankClicked
-        self.onRankRejected = onRankRejected
-        categories = Dictionary(grouping: ranks, by: { $0?.group })
-        // Must append from LadderRankClass values; can't do categories keys since it's unsorted
-        // Question: are there cases where "No Rank" will not show up?
-        categoriesList.append(nil)
-        let rankClasses = LadderRankClass.values()
-        for i in (0..<Int(rankClasses.size)) {
-            let rankClass = rankClasses.get(index: Int32(i))!
-            categoriesList.append(rankClass)
-        }
-    }
+    var data: UIRankList
+    var onInput: (RankListViewModel.Input) -> (Void)
     
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(categoriesList, id: \.self) { category in
-                        Button {
-                            withAnimation {
-                                selectedCategory = category
-                                showSelectorPanel = true
-                                compressSelectorPanel = false
-                            }
-                        } label: {
-                            RankImageWithTitle(
-                                rank: category?.toLadderRank(),
-                                text: category?.nameRes.desc().localized() ?? MR.strings().no_rank.desc().localized(),
-                                imageSize: 64,
-                                textSize: 20
-                            )
-                        }
+                    ForEach(data.rankClasses, id: \.self) { category in
+                        RankImageWithTitle(
+                            rank: category.rankClass?.toLadderRank(),
+                            text: category.text.localized(),
+                            imageSize: 64,
+                            onClick: { onInput(category.tapInput) }
+                        )
                         .padding(.horizontal, 8)
-                        .buttonStyle(.plain)
                     }
                 }
             }.frame(height: 100)
             Divider().overlay(colorScheme == .dark ? .white : .black)
-            if (showSelectorPanel) {
-                let availableRanks = categories[selectedCategory]
-                if (availableRanks!.count < 5) {
-                    NoRankDetails(noRank: noRank, onRankRejected: onRankRejected)
-                } else {
-                    RankCategorySelector(
-                        availableRanks: availableRanks!,
-                        onRankClicked: onRankClicked,
-                        compressed: $compressSelectorPanel
-                    )
-                }
+            if (data.showRankSelector) {
+                RankDetailSelector(
+                    availableRanks: data.ranks,
+                    compress: data.isRankSelectorCompressed,
+                    noRank: data.noRankInfo,
+                    onInput: onInput
+                )
             }
+        }
+    }
+}
+
+struct RankDetailSelector: View {
+    var availableRanks: [UILadderRank]
+    var compress: Bool
+    var noRank: UINoRank
+    var onInput: (RankListViewModel.Input) -> (Void)
+    
+    var body: some View {
+        if (availableRanks.count < 5) {
+            NoRankDetails(
+                noRank: noRank,
+                onInput: onInput
+            )
+        } else {
+            RankCategorySelector(
+                availableRanks: availableRanks,
+                compressed: compress,
+                onInput: onInput
+            )
         }
     }
 }
 
 struct NoRankDetails: View {
     var noRank: UINoRank
-    var onRankRejected: () -> (Void)
+    var onInput: (RankListViewModel.Input) -> (Void)
     
     var body: some View {
         VStack {
             Text(noRank.bodyText.desc().localized())
-            Spacer().frame(height: 16)
+                .padding(.bottom, 16)
             Button {
                 withAnimation {
-                    onRankRejected()
+                    onInput(noRank.buttonInput)
                 }
             } label: {
                 Text(noRank.buttonText.desc().localized())
                     .padding()
-                    .background(Color(red: 1, green: 0, blue: 0.44))
+                    .background(Color(.accent))
                     .foregroundColor(.white)
                     .clipShape(Capsule())
                     .font(.system(size: 16, weight: .medium))
@@ -103,77 +91,40 @@ struct NoRankDetails: View {
 }
 
 struct RankCategorySelector: View {
-    var availableRanks: [LadderRank?]
-    var onRankClicked: (LadderRank?) -> (Void)
-    @Binding var compressed: Bool
+    var availableRanks: [UILadderRank]
+    var compressed: Bool
+    var onInput: (RankListViewModel.Input) -> (Void)
     
     var body: some View {
         if compressed {
             HStack {
                 ForEach(availableRanks, id: \.self) { rank in
-                    Button {
-                        withAnimation {
-                            onRankClicked(rank)
-                        }
-                    } label: {
-                        RankImageWithTitle(rank: rank, text: rank!.categoryNameRes.desc().localized(), imageSize: 48)
-                    }
-                    .buttonStyle(.plain)
+                    RankImageWithTitle(
+                        rank: rank.rank,
+                        text: rank.text.localized(),
+                        imageSize: 48,
+                        onClick: { onInput(rank.tapInput) }
+                    )
                 }
             }.transition(.move(edge: .top).combined(with: .opacity))
         } else {
             VStack {
                 HStack {
                     ForEach(availableRanks[0..<3], id: \.self) { rank in
-                        Button {
-                            withAnimation {
-                                compressed = true
-                                onRankClicked(rank)
-                            }
-                        } label: {
-                            RankImageWithTitle(rank: rank, text: rank!.nameRes.desc().localized(), imageSize: 84)
-                        }
-                        .buttonStyle(.plain)
-                        .transition(.move(edge: .top).combined(with: .opacity))
+                        RankImageWithTitle(rank: rank.rank, onClick: { onInput(rank.tapInput) })
+                            .frame(maxWidth: .infinity)
+                            .transition(.move(edge: .top).combined(with: .opacity))
                     }
                 }
                 Spacer().frame(height: 16)
                 HStack {
                     ForEach(availableRanks[3..<5], id: \.self) { rank in
-                        Button {
-                            withAnimation {
-                                compressed = true
-                                onRankClicked(rank)
-                            }
-                        } label: {
-                            RankImageWithTitle(rank: rank, text: rank!.nameRes.desc().localized(), imageSize: 84)
-                        }
-                        .buttonStyle(.plain)
-                        .transition(.move(edge: .top).combined(with: .opacity))
+                        RankImageWithTitle(rank: rank.rank, onClick: { onInput(rank.tapInput) })
+                            .frame(maxWidth: .infinity)
+                            .transition(.move(edge: .top).combined(with: .opacity))
                     }
                 }
             }.transition(.move(edge: .top).combined(with: .opacity))
         }
-    }
-}
-
-struct RankImageWithTitle: View {
-    var rank: LadderRank?
-    var text: String
-    var imageSize: Int
-    var textSize: Int = 20
-    
-    var body: some View {
-        VStack {
-            Image(rank != nil ? String(describing: rank!).lowercased() : "copper1")
-                .resizable()
-                .frame(width: CGFloat(imageSize), height: CGFloat(imageSize))
-                .saturation(rank != nil ? 1.0 : 0.0)
-            Text(text)
-                .font(.system(size: CGFloat(textSize), weight: .heavy))
-                .frame(width: CGFloat(imageSize) + 20.0)
-                .minimumScaleFactor(0.5)
-                .lineLimit(1)
-        }.frame(maxWidth: .infinity)
     }
 }

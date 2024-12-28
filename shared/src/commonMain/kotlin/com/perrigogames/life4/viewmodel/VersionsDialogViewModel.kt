@@ -1,10 +1,10 @@
 package com.perrigogames.life4.viewmodel
 
+import com.perrigogames.life4.feature.motd.MotdManager
 import com.perrigogames.life4.feature.songlist.IgnoreListManager
+import com.perrigogames.life4.feature.songlist.SongDataManager
 import com.perrigogames.life4.feature.trials.TrialManager
 import com.perrigogames.life4.model.LadderDataManager
-import com.perrigogames.life4.model.MotdManager
-import com.perrigogames.life4.feature.songlist.SongDataManager
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

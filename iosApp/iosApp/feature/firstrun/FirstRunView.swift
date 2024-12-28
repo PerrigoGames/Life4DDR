@@ -72,7 +72,9 @@ struct FirstRunView: View {
                         }
                     }
                 }
-            }.onAppear {
+            }
+            .navigationBarBackButtonHidden(true)
+            .onAppear {
                 viewModel.state.subscribe { state in
                     if let currentStep = state {
                         withAnimation {

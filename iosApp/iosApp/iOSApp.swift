@@ -4,47 +4,151 @@ import Shared
 @available(iOS 16.0, *)
 @main
 struct iOSApp: App {
+    @ObservedObject var viewModel: LaunchViewModel = LaunchViewModel()
+    @State private var path = NavigationPath()
+    @State var loaded: Bool = false
+    
     init() {
-      KoinKt.doInitKoin(
-        appModule: nativeModule,
-        extraAppModule: Koin_iosKt.makeIosExtraModule(defaults: UserDefaults.standard),
-        appDeclaration: { _ in }
-      )
+        KoinKt.doInitKoin(
+            appModule: nativeModule,
+            extraAppModule: Koin_iosKt.makeIosExtraModule(defaults: UserDefaults.standard),
+            appDeclaration: { _ in }
+        )
+        _ = LadderDataManager()
+        _ = MotdManager()
+        _ = PlacementManager()
+        _ = SongDataManager()
+        _ = TrialManager()
     }
     
-    @State private var path = NavigationPath()
-    
-    func goToView(nextStep: InitState) {
-        path.append(nextStep)
+    func goToView(nextStep: InitState?) {
+        switch nextStep {
+            case InitState.placements:
+                // TODO: add a destination from the TrialListView to Placements
+                // right now, there is only one Placements destination
+                path.append(nextStep!)
+            case InitState.ranks:
+                path.append(FirstRunDestination.InitialRankList())
+            case InitState.done:
+                path.append(FirstRunDestination.MainScreen())
+            default:
+                path.append(FirstRunDestination.FirstRun())
+        }
     }
     
 	var body: some Scene {
 		WindowGroup {
             NavigationStack(path: $path) {
-                FirstRunView(onComplete: goToView)
+                SplashScreen()
+                .navigationDestination(for: FirstRunDestination.FirstRun.self) { _ in
+                    FirstRunView(onComplete: goToView)
+                }
                 .navigationDestination(for: InitState.self) { initState in
-                    switch initState {
-                        case InitState.placements:
-                            PlacementListView(
-                                onRanksClicked: { goToView(nextStep: InitState.ranks) },
-                                goToMainView: { goToView(nextStep: InitState.done) }
-                            )
-                        case InitState.ranks:
-                            FirstRunRankListView(
-                                onPlacementClicked: { goToView(nextStep: InitState.placements) },
-                                goToMainView: { goToView(nextStep: InitState.done) }
-                            )
-                        case InitState.done:
-                            // MainView()
-                            Text("Main View not implemented yet")
-                                .navigationBarBackButtonHidden(true)
-                        default:
-                            Text("Not implemented")
+                    PlacementListView(
+                        isFirstRun: true,
+                        onRanksClicked: { goToView(nextStep: InitState.ranks) },
+                        goToMainView: { goToView(nextStep: InitState.done) },
+                        onPlacementSelected: { placement in
+                            path.append(FirstRunDestination.PlacementDetails(placementId: placement.id))
+                        }
+                    )
+                }
+                .navigationDestination(for: FirstRunDestination.InitialRankList.self) { _ in
+                    RankListView(
+                        isFirstRun: true,
+                        onAction: { action in
+                            if action is RankListViewModel.ActionNavigateToPlacements {
+                                goToView(nextStep: InitState.placements)
+                            } else if action is RankListViewModel.ActionNavigateToMainScreen {
+                                goToView(nextStep: InitState.done)
+                            }
+                        }
+                    )
+                }
+                .navigationDestination(for: FirstRunDestination.MainScreen.self) { _ in
+                    MainView(path: $path)
+                }
+                .navigationDestination(for: LadderDestination.RankList.self) { _ in
+                    RankListView(
+                        onAction: { action in
+                            if action is RankListViewModel.ActionNavigateToMainScreen {
+                                path.removeLast()
+                            }
+                        }
+                    )
+                }
+                .navigationDestination(for: FirstRunDestination.PlacementList.self) { _ in
+                    PlacementListView(
+                        onPlacementSelected: { placement in
+                            path.append(FirstRunDestination.PlacementDetails(placementId: placement.id))
+                        }
+                    )
+                }
+                .navigationDestination(for: TrialDestination.TrialDetails.self) { destination in
+                    TrialDetailsView(trial: destination.trial)
+                }
+                .navigationDestination(for: FirstRunDestination.PlacementDetails.self) { destination in
+                    PlacementDetailsView(placementId: destination.placementId)
+                }
+            }
+            .accentColor(Color(.accent))
+            // TODO: debug below for initializing the view
+            .onAppear {
+                viewModel.launchState.subscribe { state in
+//                    print("debug launch state \(state)")
+                    if !loaded {
+                        goToView(nextStep: state)
+                        loaded = true
                     }
                 }
             }
 		}
 	}
+}
+
+struct SplashScreen: View {
+    // TODO: change this, this is a simple temporary splash screen
+    var body: some View {
+        Image("LIFE4-Logo")
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 300)
+    }
+}
+
+@available(iOS 16.0, *)
+struct MainView: View {
+    @Binding var path: NavigationPath
+    
+    var body: some View {
+        TabView {
+            PlayerProfileView(
+                onAction: { action in
+                    if action is PlayerProfileAction.ChangeRank {
+                        path.append(LadderDestination.RankList())
+                    }
+                }
+            ).tabItem {
+                Label("Profile", systemImage: "person")
+            }
+            ScoreListView().tabItem {
+                Label("Scores", systemImage: "music.note.list")
+            }
+            TrialListView(
+                onTrialSelected: { trial in
+                    path.append(TrialDestination.TrialDetails(trial: trial))
+                },
+                onPlacementsSelected: {
+                    path.append(FirstRunDestination.PlacementList())
+                }
+            ).tabItem {
+                Label("Trials", systemImage: "square.grid.2x2")
+            }
+            SettingsView().tabItem {
+                Label("Settings", systemImage: "gear")
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+    }
 }
 
 //@available(iOS 16.0, *)

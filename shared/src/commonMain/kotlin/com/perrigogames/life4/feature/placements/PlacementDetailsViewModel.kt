@@ -7,7 +7,9 @@ import com.perrigogames.life4.data.trials.toUITrialSong
 import com.perrigogames.life4.enums.LadderRank
 import com.perrigogames.life4.feature.songlist.SongDataManager
 import com.perrigogames.life4.injectLogger
+import dev.icerock.moko.mvvm.flow.CStateFlow
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
+import dev.icerock.moko.mvvm.flow.cStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import dev.icerock.moko.resources.desc.StringDesc
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,7 +28,7 @@ class PlacementDetailsViewModel(
     private val songDataManager: SongDataManager by inject()
 
     private val _state = MutableStateFlow(UIPlacementDetails()).cMutableStateFlow()
-    val state: StateFlow<UIPlacementDetails> = _state.asStateFlow()
+    val state: CStateFlow<UIPlacementDetails> = _state.cStateFlow()
 
     init {
         viewModelScope.launch {

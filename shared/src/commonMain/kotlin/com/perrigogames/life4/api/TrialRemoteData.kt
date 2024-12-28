@@ -3,16 +3,17 @@ package com.perrigogames.life4.api
 import com.perrigogames.life4.api.base.*
 import com.perrigogames.life4.data.TrialData
 import com.perrigogames.life4.ktor.GithubDataAPI
+import com.perrigogames.life4.ktor.GithubDataAPI.Companion.TRIALS_FILE_NAME
 import kotlinx.serialization.json.Json
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 
-class TrialRemoteData(
-    reader: LocalDataReader,
-): CompositeData<TrialData>(), KoinComponent {
+class TrialRemoteData: CompositeData<TrialData>(), KoinComponent {
 
     private val json: Json by inject()
     private val githubKtor: GithubDataAPI by inject()
+    private val reader: LocalDataReader by inject(named(TRIALS_FILE_NAME))
 
     private val converter = TrialDataConverter()
 

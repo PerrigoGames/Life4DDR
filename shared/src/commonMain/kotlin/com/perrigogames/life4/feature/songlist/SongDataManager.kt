@@ -26,10 +26,8 @@ import org.koin.core.qualifier.named
  */
 class SongDataManager: BaseModel() {
 
-    private val dataReader: LocalDataReader by inject(named(SONGS_FILE_NAME))
+    private val data: SongListRemoteData by inject()
     private val logger: Logger by injectLogger("SongDataManager")
-
-    private val data = SongListRemoteData(dataReader)
 
     val dataVersionString: Flow<String> =
         data.versionState.map { it.versionString }

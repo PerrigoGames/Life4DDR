@@ -1,8 +1,11 @@
 package com.perrigogames.life4.feature.settings
 
+import dev.icerock.moko.mvvm.flow.CStateFlow
 import dev.icerock.moko.mvvm.flow.cMutableStateFlow
+import dev.icerock.moko.mvvm.flow.cStateFlow
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class SettingsViewModel(
     private val onClose: () -> Unit,
@@ -11,12 +14,13 @@ class SettingsViewModel(
     private val pageStackState = MutableStateFlow(listOf(SettingsPage.ROOT)).cMutableStateFlow()
     private val pageFlow = pageStackState.map { it.last() }
 
-    val state: StateFlow<UISettingsData?> = pageFlow.map { createPage(it) }
-        .stateIn(viewModelScope, started = SharingStarted.Lazily, initialValue = null)
+    val state: CStateFlow<UISettingsData?> = pageFlow.map { createPage(it) }
+        .stateIn(viewModelScope, started = SharingStarted.Lazily, initialValue = null).cStateFlow()
+    private val _events = MutableSharedFlow<SettingsEvent>()
+    val events: SharedFlow<SettingsEvent> = _events
 
     fun handleAction(action: SettingsAction) {
         when (action) {
-            is SettingsAction.Email -> TODO()
             is SettingsAction.Modal -> TODO()
             is SettingsAction.Navigate -> pushPage(action.page)
             is SettingsAction.NavigateBack -> {
@@ -28,7 +32,16 @@ class SettingsViewModel(
             }
             SettingsAction.None -> {}
             is SettingsAction.SetBoolean -> TODO()
-            is SettingsAction.WebLink -> TODO()
+            is SettingsAction.Email -> {
+                viewModelScope.launch {
+                    _events.emit(SettingsEvent.Email(action.email))
+                }
+            }
+            is SettingsAction.WebLink -> {
+                viewModelScope.launch {
+                    _events.emit(SettingsEvent.WebLink(action.url))
+                }
+            }
             is SettingsAction.ShowCredits -> onNavigateToCredits()
         }
     }

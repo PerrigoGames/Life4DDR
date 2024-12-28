@@ -8,16 +8,17 @@ import com.perrigogames.life4.api.base.LocalDataReader
 import com.perrigogames.life4.api.base.RemoteData
 import com.perrigogames.life4.data.IgnoreListData
 import com.perrigogames.life4.ktor.GithubDataAPI
+import com.perrigogames.life4.ktor.GithubDataAPI.Companion.IGNORES_FILE_NAME
 import kotlinx.serialization.json.Json
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 
-class IgnoreListRemoteData(
-    reader: LocalDataReader,
-): CompositeData<IgnoreListData>(), KoinComponent {
+class IgnoreListRemoteData: CompositeData<IgnoreListData>(), KoinComponent {
 
     private val json: Json by inject()
     private val githubKtor: GithubDataAPI by inject()
+    private val reader: LocalDataReader by inject(named(IGNORES_FILE_NAME))
 
     private val converter = IgnoreListConverter()
 

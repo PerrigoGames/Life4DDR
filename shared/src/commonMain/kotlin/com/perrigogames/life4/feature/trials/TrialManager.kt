@@ -29,10 +29,9 @@ class TrialManager: BaseModel() {
     private val settings: Settings by inject()
     private val notifications: Notifications by inject()
     private val dbHelper: TrialDatabaseHelper by inject()
-    private val dataReader: LocalDataReader by inject(named(TRIALS_FILE_NAME))
     private val logger: Logger by injectLogger("TrialManager")
 
-    private var data = TrialRemoteData(dataReader)
+    private var data = TrialRemoteData()
 
 //    override fun onDataVersionChanged(data: TrialData) {
 //        notifications.showToast("${data.trials.size} Trials found!")

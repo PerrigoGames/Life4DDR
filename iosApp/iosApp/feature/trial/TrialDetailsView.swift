@@ -16,7 +16,8 @@ struct TrialDetailsView: View {
     var body: some View {
         ZStack {
             VStack {
-                Image(trial.name)
+                let imageResource = trial.coverResource as? ImageDescResource
+                Image(uiImage: (imageResource != nil ? imageResource?.resource.toUIImage() : MR.images().trial_default.toUIImage())!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(minWidth: 0, maxWidth: .infinity)

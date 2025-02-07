@@ -15,17 +15,19 @@ struct iOSApp: App {
             appDeclaration: { _ in }
         )
         _ = LadderDataManager()
-        _ = MotdManager()
+        _ = DefaultMotdManager()
         _ = PlacementManager()
         _ = SongDataManager()
         _ = TrialManager()
+        _ = DefaultMotdSettings()
+        _ = SanbaiAPIImpl()
+        _ = SanbaiAPISettings()
+        _ = SanbaiManager()
     }
     
     func goToView(nextStep: InitState?) {
         switch nextStep {
             case InitState.placements:
-                // TODO: add a destination from the TrialListView to Placements
-                // right now, there is only one Placements destination
                 path.append(nextStep!)
             case InitState.ranks:
                 path.append(FirstRunDestination.InitialRankList())
@@ -184,14 +186,10 @@ var nativeModule: Koin_coreModule = KoinKt.makeNativeModule(
     fileResource: MR.files().trials,
     cachedFileName: GithubDataAPICompanion().TRIALS_FILE_NAME
   ),
-  notifications: DummyNotifications(),
   additionalItems: {_ in }
 )
 
 class IosAppInfo: AppInfo {
-  var appId: String = "LIFE4DDR"
-}
-
-class DummyNotifications: Notifications {
-  
+    var appId: String = "LIFE4DDR"
+    var isDebug: Bool = true
 }

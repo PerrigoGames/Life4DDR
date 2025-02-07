@@ -20,6 +20,8 @@
 		198234562C2CDA160033C7E1 /* TrialDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234552C2CDA160033C7E1 /* TrialDetailsView.swift */; };
 		198234582C2E2CF60033C7E1 /* PlacementDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198234572C2E2CF50033C7E1 /* PlacementDetailsView.swift */; };
 		198D1B982B8AAB9400021CD7 /* FirstRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198D1B972B8AAB9400021CD7 /* FirstRunView.swift */; };
+		19B51FA82D49CB3900DC3337 /* FilterPanelSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B51FA72D49CB3900DC3337 /* FilterPanelSwiftUI.swift */; };
+		19B51FAB2D4B05C700DC3337 /* BannerSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B51FAA2D4B05C700DC3337 /* BannerSwiftUI.swift */; };
 		19BBD3A62B92C19600700A66 /* LadderSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BBD3A52B92C19600700A66 /* LadderSwiftUI.swift */; };
 		19C92BD62C13DDE600570D3C /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD12C13DDE600570D3C /* ViewModelState.swift */; };
 		19C92BD72C13DDE600570D3C /* CFlowExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C92BD22C13DDE600570D3C /* CFlowExt.swift */; };
@@ -44,6 +46,8 @@
 		198234552C2CDA160033C7E1 /* TrialDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialDetailsView.swift; sourceTree = "<group>"; };
 		198234572C2E2CF50033C7E1 /* PlacementDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementDetailsView.swift; sourceTree = "<group>"; };
 		198D1B972B8AAB9400021CD7 /* FirstRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunView.swift; sourceTree = "<group>"; };
+		19B51FA72D49CB3900DC3337 /* FilterPanelSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPanelSwiftUI.swift; sourceTree = "<group>"; };
+		19B51FAA2D4B05C700DC3337 /* BannerSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerSwiftUI.swift; sourceTree = "<group>"; };
 		19BBD3A52B92C19600700A66 /* LadderSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LadderSwiftUI.swift; sourceTree = "<group>"; };
 		19C92BD12C13DDE600570D3C /* ViewModelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
 		19C92BD22C13DDE600570D3C /* CFlowExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFlowExt.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				198234532C2B6D300033C7E1 /* ScoreListView.swift */,
+				19B51FA72D49CB3900DC3337 /* FilterPanelSwiftUI.swift */,
 			);
 			path = scorelist;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 		198D1B952B8AAB8000021CD7 /* feature */ = {
 			isa = PBXGroup;
 			children = (
+				19B51FA92D4B05B300DC3337 /* banners */,
 				198234522C2B6BF40033C7E1 /* scorelist */,
 				1982344F2C2B442F0033C7E1 /* settings */,
 				1945D7F32C2790440037A976 /* profile */,
@@ -157,6 +163,14 @@
 				19424A4E2B8EB0AD0054E112 /* RankListSwiftUI.swift */,
 			);
 			path = ranklist;
+			sourceTree = "<group>";
+		};
+		19B51FA92D4B05B300DC3337 /* banners */ = {
+			isa = PBXGroup;
+			children = (
+				19B51FAA2D4B05C700DC3337 /* BannerSwiftUI.swift */,
+			);
+			path = banners;
 			sourceTree = "<group>";
 		};
 		19E4E8552C2514DE00583A7B /* trial */ = {
@@ -329,6 +343,7 @@
 				1945D7F92C28FD500037A976 /* RankImageView.swift in Sources */,
 				19C92BDA2C13DDE600570D3C /* ViewModelObservable.swift in Sources */,
 				198234562C2CDA160033C7E1 /* TrialDetailsView.swift in Sources */,
+				19B51FA82D49CB3900DC3337 /* FilterPanelSwiftUI.swift in Sources */,
 				198234512C2B443F0033C7E1 /* SettingsView.swift in Sources */,
 				1956B5432B9F8F5900BD5FF8 /* iosDataReader.swift in Sources */,
 				197ECD712C1E358C003B17C2 /* PlacementListView.swift in Sources */,
@@ -339,6 +354,7 @@
 				19424A4F2B8EB0AD0054E112 /* RankListSwiftUI.swift in Sources */,
 				19C92BD72C13DDE600570D3C /* CFlowExt.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				19B51FAB2D4B05C700DC3337 /* BannerSwiftUI.swift in Sources */,
 				198234542C2B6D300033C7E1 /* ScoreListView.swift in Sources */,
 				198234582C2E2CF60033C7E1 /* PlacementDetailsView.swift in Sources */,
 				1945D7F52C2790560037A976 /* PlayerProfileView.swift in Sources */,

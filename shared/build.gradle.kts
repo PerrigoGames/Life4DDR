@@ -77,6 +77,7 @@ kotlin {
         }
         iosMain.dependencies {
             implementation(libs.sqlDelight.native)
+            implementation(libs.ktor.client.ios)
             api(libs.moko.mvvm.core)
             api(libs.moko.mvvm.flow)
         }

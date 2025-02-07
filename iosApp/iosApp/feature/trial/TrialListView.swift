@@ -97,7 +97,8 @@ struct TrialJacket: View {
     var onClick: () -> (Void)
     
     var body: some View {
-        Image(trialData.trial.name)
+        let imageResource = trialData.trial.coverResource as? ImageDescResource
+        Image(uiImage: (imageResource != nil ? imageResource?.resource.toUIImage() : MR.images().trial_default.toUIImage())!)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .overlay(alignment: .topLeading) {

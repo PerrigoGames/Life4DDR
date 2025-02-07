@@ -20,9 +20,10 @@ struct PlayerProfileView: View {
     var body: some View {
         VStack {
             PlayerProfileInfo(
-                state: playerInfoViewState ?? PlayerInfoViewState(username: "", rivalCode: "", socialNetworks: [:], rank: nil),
+                state: playerInfoViewState ?? PlayerInfoViewState(username: "", rivalCode: "", socialNetworks: [:], rank: nil, banner: nil),
                 onRankClicked: { onAction(PlayerProfileAction.ChangeRank()) }
             )
+            BannerContainer(data: playerInfoViewState?.banner)
             if (goalData != nil) {
                 LadderGoals(
                     data: goalData,
@@ -36,6 +37,7 @@ struct PlayerProfileView: View {
             }
             if (goalError != nil) {
                 Text(goalError!).font(.system(size: 22, weight: .bold))
+                Spacer()
             }
         }
         .onAppear {
@@ -49,11 +51,9 @@ struct PlayerProfileView: View {
             viewModel.goalListViewModel.state.subscribe { state in
                 if let currentGoalState = state {
                     goalListViewState = currentGoalState
-                    if let success = goalListViewState as? ViewStateSuccess<UILadderData> {
-                        goalData = success.data
-                    } else if let error = goalListViewState as? ViewStateError<NSString> {
-                        goalError = String(error.error!)
-                    }
+                    goalData = (goalListViewState as? ViewStateSuccess<UILadderData>)?.data
+                    let error = goalListViewState as? ViewStateError<NSString>
+                    goalError = error?.error as? String
                 }
             }
         }
@@ -81,5 +81,5 @@ struct PlayerProfileInfo: View {
 }
 
 #Preview {
-    PlayerProfileView(playerInfoViewState: PlayerInfoViewState(username: "Andeh", rivalCode: "6164-4734", socialNetworks: [:], rank: nil), onAction: { _ in })
+    PlayerProfileView(playerInfoViewState: PlayerInfoViewState(username: "Andeh", rivalCode: "6164-4734", socialNetworks: [:], rank: nil, banner: nil), onAction: { _ in })
 }
